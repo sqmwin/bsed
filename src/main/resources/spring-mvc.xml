@@ -16,5 +16,22 @@
        http://www.springframework.org/schema/tx/spring-tx.xsd
        http://www.springframework.org/schema/mvc
        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+    <!--注册注解识别-->
+    <context:annotation-config/>
+    <context:component-scan base-package="cn.bsed.controller">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
 
- </beans>
+    <!--注册springmvc注解驱动-->
+    <mvc:annotation-driven/>
+
+    <!--静态资源访问默认servlet-->
+    <mvc:default-servlet-handler/>
+
+    <!--定位视图解析器地址-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+</beans>
