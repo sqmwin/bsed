@@ -27,7 +27,7 @@
 
     <style type="text/css">
         *{ margin:0px; padding:0px;}
-        #menu{ width:1200px; height:40px; margin:0 auto;}
+        #menu{ background-color:#eee; width:1500px; height:40px; margin:0 auto;}
         ul{ list-style:none;}
         ul li{
             float: left;
@@ -35,8 +35,16 @@
             text-align: center;
             position:relative;
         }
-        ul li ul{width: 90px;position: absolute;left: 0;top: 40px;display: none;}
-        ul li ul li{float: none;margin-top:3px; }
+
+        ul li ul{width: 100px;position: absolute;left: 0;top: 40px;display: none;}
+        ul li ul li{float: none;background-color:#eee;margin-top:3px; }
+        a{
+            text-decoration: none;
+            color:#000; display:block; width:100px;
+        }
+        a:hover{
+            color:#FFF; background-color:#666;
+        }
     </style>
 </head>
 <body>
@@ -45,15 +53,15 @@
         <li><a href="#">首页</a></li>
         <li class="navbar"><a href="#">景观设计</a>
             <ul>
-                <li><a href="#">${categories[0]}</a></li>
-                <li><a href="#">${categories[1]}</a></li>
+                <li><a href="#">${categories[0].name}</a></li>
+                <li><a href="#">${categories[1].name}</a></li>
             </ul>
         </li>
         <li class="navbar"><a href="#">旅游规划</a>
             <ul>
-                <li><a href="#">${categories[2]}</a></li>
-                <li><a href="#">${categories[3]}</a></li>
-                <li><a href="#">${categories[4]}</a></li>
+                <li><a href="#">${categories[2].name}</a></li>
+                <li><a href="#">${categories[3].name}</a></li>
+                <li><a href="#">${categories[4].name}</a></li>
             </ul>
         </li>
         <li><a href="#">建筑装饰设计</a></li>
@@ -62,13 +70,13 @@
         <li><a href="#">苗圃种植</a></li>
         <li class="navbar"><a href="#">关于蓝海</a>
             <ul>
-                <li><a href="#">${categories[5]}</a></li>
-                <li><a href="#">${categories[6]}</a></li>
-                <li><a href="#">${categories[7]}</a></li>
-                <li><a href="#">${categories[8]}</a></li>
-                <li><a href="#">${categories[9]}</a></li>
-                <li><a href="#">${categories[10]}</a></li>
-                <li><a href="#">${categories[11]}</a></li>
+                <li><a href="#">${categories[5].name}</a></li>
+                <li><a href="#">${categories[6].name}</a></li>
+                <li><a href="#">${categories[7].name}</a></li>
+                <li><a href="#">${categories[8].name}</a></li>
+                <li><a href="#">${categories[9].name}</a></li>
+                <li><a href="#">${categories[10].name}</a></li>
+                <li><a href="#">${categories[11].name}</a></li>
             </ul>
         </li>
         <li><a href="#">关注蓝海</a></li>
