@@ -60,15 +60,15 @@
                 <li><a href="list_projects_by_category_id?categoryId=5">${categories[4].name}</a></li>
             </ul>
         </li>
-        <li><a href="#">建筑装饰设计</a></li>
-        <li><a href="#">智慧乐园</a></li>
-        <li><a href="#">艺术雕塑</a></li>
-        <li><a href="#">苗圃种植</a></li>
+        <li><a href="list_projects_by_category_type?categoryType=type_decoration">建筑装饰设计</a></li>
+        <li><a href="list_projects_by_category_type?categoryType=type_wonderland">智慧乐园</a></li>
+        <li><a href="list_projects_by_category_type?categoryType=type_art">艺术雕塑</a></li>
+        <li><a href="list_projects_by_category_type?categoryType=type_garden">苗圃种植</a></li>
         <li class="navbar"><a href="#">关于蓝海</a>
             <ul>
                 <li><a href="philosophy">${categories[5].name}</a></li>
                 <li><a href="list_news">${categories[6].name}</a></li>
-                <li><a href="">${categories[7].name}</a></li>
+                <li><a href="honor">${categories[7].name}</a></li>
                 <li><a href="list_creators">${categories[8].name}</a></li>
                 <li><a href="list_profession">${categories[9].name}</a></li>
                 <li><a href="join">${categories[10].name}</a></li>

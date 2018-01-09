@@ -36,9 +36,7 @@ public class CategoryServiceImpl implements CategoryService{
     }
 
     @Override
-    public Category get(int id) {
-        return null;
-    }
+    public Category get(int id) { return categoryMapper.selectByPrimaryKey(id); }
 
     @Override
     public List<Category> listAll() {

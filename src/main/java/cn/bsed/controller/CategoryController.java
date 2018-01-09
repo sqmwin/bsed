@@ -41,8 +41,21 @@ public class CategoryController {
      * @return 分类页面
      */
     @RequestMapping("admin_category_add")
-    public String add(Category category, Model model) {
+    public String add(Category category) {
         categoryService.add(category);
+        return "redirect:admin_category_list";
+    }
+
+    /**
+     * <p>   编辑分类
+     *
+     * @param category 得到的分类
+     * @param model 编辑过后的分类
+     * @return 分类页面
+     */
+    @RequestMapping("admin_category_edit")
+    public String edit(Category category,Model model) {
+        categoryService.update(category);
         return "redirect:admin_category_list";
     }
 }

@@ -27,9 +27,10 @@
             <tr>
                 <td>${c.id}</td>
                 <td>${c.name}</td>
+                <td>${c.type}</td>
                 <td>${c.description}</td>
                 <td>
-                    <a href="admin_category_edit?id=${c.id}">编辑分类</a>
+                    <a href="admin_edit_category_page?id=${c.id}">编辑分类</a>
                 </td>
                 <td>
                     <a href="admin_category_delete?id=${c.id}">删除分类</a>
@@ -40,16 +41,31 @@
     </table>
 </div>
 <div>新增分类</div>
-    <form method="post" id="addForm" action="admin_category_add">
+<div>
+    <form method="post" action="admin_category_add">
         <table>
             <tr>
                 <td>分类名称</td>
-                <td><input  id="name" name="name" type="text" class="form-control"></td>
+                <td><input  id="name" name="name" type="text"></td>
             </tr>
             <tr>
                 <td>分类类型</td>
                 <td>
-                    <input id="categoryPic" accept="image/*" type="file" name="image" />
+                    <select id="type" name="type">
+                        <option value="type_landscape">type_landscape</option>
+                        <option value="type_tourism">type_tourism</option>
+                        <option value="type_decoration">type_decoration</option>
+                        <option value="type_wonderland">type_wonderland</option>
+                        <option value="type_art">type_art</option>
+                        <option value="type_garden">type_garden</option>
+                        <option value="type_other">type_other</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>分类描述</td>
+                <td>
+                    <textarea name="description" id="description" cols="30" rows="10"></textarea>
                 </td>
             </tr>
             <tr>
