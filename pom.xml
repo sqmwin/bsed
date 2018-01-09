@@ -32,7 +32,20 @@
             <artifactId>mybatis</artifactId>
             <version>3.4.5</version>
         </dependency>
+        <dependency>
+            <groupId>ognl</groupId>
+            <artifactId>ognl</artifactId>
+            <version>3.1.15</version>
+        </dependency>
+        <dependency>
+            <groupId>org.javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <version>3.22.0-CR2</version>
+        </dependency>
 
+        <!--slf4j-->
+
+        
         <!--mybatis-spring-->
         <dependency>
             <groupId>org.mybatis</groupId>

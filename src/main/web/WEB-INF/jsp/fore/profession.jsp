@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>专家页面</title>
 </head>
 <body>
 专家页面,profession表,id,category_id,category_type,name,occupation,description,image_url

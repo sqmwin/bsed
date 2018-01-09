@@ -6,12 +6,37 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
-    <title>Title</title>
+    <title>项目列表</title>
 </head>
 <body>
-根据数据库的category表的id值显示不同的条目<br/>
-project表:id,category_id,category_type,title,description,name,owner,location,area,time,project_page_url,image_url
+<div>
+    <table>
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>分类id</th>
+            <th>分类类型</th>
+            <th>项目标题</th>
+            <th>项目图片url</th>
+        </tr>
+        </thead>
+        <tbody>
+        <c:forEach items="${projects}" var="p">
+            <tr>
+                <td>${p.id}</td>
+                <td>${p.categoryId}</td>
+                <td>${p.categoryType}</td>
+                <td>
+                    <a href="show_project?id=${p.id}">${p.title}</a>
+                </td>
+                <td>${p.imageUrl}</td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>

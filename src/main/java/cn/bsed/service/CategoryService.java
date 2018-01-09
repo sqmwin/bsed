@@ -12,7 +12,8 @@ import java.util.List;
  */
 public interface CategoryService {
 
-    String TYPE_PROJECT = "type_project";
+    String TYPE_LANDSCAPE = "type_landscape";
+    String TYPE_TOURISM = "type_tourism";
     String TYPE_OTHER = "type_other";
 
     void add(Category category);
@@ -23,5 +24,5 @@ public interface CategoryService {
 
     Category get(int id);
 
-    List<Category> list();
+    List<Category> listAll();
 }

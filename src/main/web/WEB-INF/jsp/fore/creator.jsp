@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>主创页面</title>
 </head>
 <body>
 主创页面,creator表,id,category_id,category_type,name,occupation,description,image_url<br/>

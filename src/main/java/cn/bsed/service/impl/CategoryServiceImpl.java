@@ -22,17 +22,17 @@ public class CategoryServiceImpl implements CategoryService{
 
     @Override
     public void add(Category category) {
-
+        categoryMapper.insert(category);
     }
 
     @Override
     public void delete(int id) {
-
+        categoryMapper.deleteByPrimaryKey(id);
     }
 
     @Override
     public void update(Category category) {
-
+        categoryMapper.updateByPrimaryKeySelective(category);
     }
 
     @Override
@@ -41,7 +41,7 @@ public class CategoryServiceImpl implements CategoryService{
     }
 
     @Override
-    public List<Category> list() {
+    public List<Category> listAll() {
         return categoryMapper.selectByExample(new CategoryExample());
     }
 }

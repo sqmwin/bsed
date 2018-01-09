@@ -22,15 +22,27 @@ public class CategoryController {
     CategoryService categoryService;
 
     /**
-     * <p>   显示所有的分类
+     * <p>   显示所有分类
      *
      * @param model 分类列表
-     * @return 主页
+     * @return 分类页面
      */
-    @RequestMapping("forehome")
-    public String fore(Model model) {
-        List<Category> categories = categoryService.list();
+    @RequestMapping("admin_category_list")
+    public String list(Model model) {
+        List<Category> categories = categoryService.listAll();
         model.addAttribute("categories", categories);
-        return "fore/home";
+        return "admin/listCategory";
+    }
+
+    /**
+     * <p>   新增分类
+     *
+     * @param model 分类列表
+     * @return 分类页面
+     */
+    @RequestMapping("admin_category_add")
+    public String add(Category category, Model model) {
+        categoryService.add(category);
+        return "redirect:admin_category_list";
     }
 }

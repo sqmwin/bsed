@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>新闻页面</title>
 </head>
 <body>
 读取news表的信息,与projects表类似<br/>
