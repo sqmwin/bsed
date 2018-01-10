@@ -13,6 +13,9 @@
 </head>
 <body>
 <div>
+    <a href="forehome">返回主页</a>
+</div>
+<div>
     <table>
         <thead>
         <tr>

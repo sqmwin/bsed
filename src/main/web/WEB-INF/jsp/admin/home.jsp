@@ -11,6 +11,9 @@
     <title>后台管理主页</title>
 </head>
 <body>
+<div>
+    <a href="forehome">返回主页</a>
+</div>
 <%--分类--%>
 <div>
     <a href="admin_category_list">分类管理</a>
