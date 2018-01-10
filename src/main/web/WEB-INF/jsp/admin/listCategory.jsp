@@ -13,6 +13,11 @@
 </head>
 <body>
 <div>
+    <form action="admin_home">
+        <button type="submit">返回上一级</button>
+    </form>
+</div>
+<div>
     <table>
         <thead>
         <tr>
@@ -38,18 +43,17 @@
             </tr>
         </c:forEach>
         </tbody>
-    </table>
-</div>
-<div>新增分类</div>
-<div>
-    <form method="post" action="admin_category_add">
-        <table>
+        <form method="post" action="admin_category_add">
+        <tfoot>
             <tr>
+                <td>新增分类</td>
                 <td>分类名称</td>
-                <td><input  id="name" name="name" type="text"></td>
+                <td>分类类型</td>
+                <td>分类描述</td>
             </tr>
             <tr>
-                <td>分类类型</td>
+                <td>分类id自动给出</td>
+                <td><input  id="name" name="name" type="text"></td>
                 <td>
                     <select id="type" name="type">
                         <option value="type_landscape">type_landscape</option>
@@ -61,20 +65,16 @@
                         <option value="type_other">type_other</option>
                     </select>
                 </td>
-            </tr>
-            <tr>
-                <td>分类描述</td>
                 <td>
-                    <textarea name="description" id="description" cols="30" rows="10"></textarea>
+                    <textarea name="description" id="description" cols="50" rows="10"></textarea>
                 </td>
-            </tr>
-            <tr>
                 <td colspan="2" align="center">
                     <button type="submit">新增分类</button>
                 </td>
             </tr>
-        </table>
-    </form>
+        </tfoot>
+        </form>
+    </table>
 </div>
 </body>
 </html>

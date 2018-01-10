@@ -7,6 +7,8 @@ import cn.bsed.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -22,17 +24,21 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     public void add(Project project) {
+        //设置创建日期
+        Date createDate = new Date();
+        project.setCreateDate(createDate);
 
+        projectMapper.insert(project);
     }
 
     @Override
     public void delete(int id) {
-
+        projectMapper.deleteByPrimaryKey(id);
     }
 
     @Override
     public void update(Project project) {
-
+       projectMapper.updateByPrimaryKeySelective(project);
     }
 
     @Override
@@ -55,5 +61,10 @@ public class ProjectServiceImpl implements ProjectService {
         example.setOrderByClause("id desc");
         List<Project> projects = projectMapper.selectByExample(example);
         return projects;
+    }
+
+    @Override
+    public List<Project> listAll() {
+        return projectMapper.selectByExample(new ProjectExample());
     }
 }

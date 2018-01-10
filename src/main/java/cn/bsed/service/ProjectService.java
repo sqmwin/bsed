@@ -22,4 +22,6 @@ public interface ProjectService {
     List<Project> listProjectsByCategoryId(int categoryId);
 
     List<Project> listProjectsByCategoryType(String categoryType);
+
+    List<Project> listAll();
 }

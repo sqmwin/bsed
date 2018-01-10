@@ -37,7 +37,7 @@ public class CategoryController {
     /**
      * <p>   新增分类
      *
-     * @param model 分类列表
+     * @param category 新增的分类
      * @return 分类页面
      */
     @RequestMapping("admin_category_add")
@@ -50,12 +50,32 @@ public class CategoryController {
      * <p>   编辑分类
      *
      * @param category 得到的分类
-     * @param model 编辑过后的分类
      * @return 分类页面
      */
     @RequestMapping("admin_category_edit")
-    public String edit(Category category,Model model) {
+    public String edit(Category category) {
         categoryService.update(category);
         return "redirect:admin_category_list";
+    }
+
+    /**
+     * <p>   删除分类
+     *
+     * @param id 要删除分类的id
+     * @param model 删除的结果
+     * @return 删除通知页面
+     */
+    @RequestMapping("admin_category_delete")
+    public String delete(Integer id,Model model) {
+        categoryService.delete(id);
+        List<Category> categories = categoryService.listAll();
+        for (Category category : categories) {
+            if (id.equals(category.getId())) {
+                model.addAttribute("result", "false");
+            } else {
+                model.addAttribute("result", "true");
+            }
+        }
+        return "admin/deleteCategory";
     }
 }

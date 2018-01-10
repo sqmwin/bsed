@@ -29,6 +29,7 @@ public class Project implements Serializable {
 
     private String area;
 
+    @DateTimeFormat(pattern = "yyyy")
     private Date time;
 
     private String projectPageUrl;
