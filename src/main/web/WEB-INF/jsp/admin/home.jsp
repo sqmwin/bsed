@@ -39,5 +39,10 @@
     <a href="admin_profession_list">专家团队管理</a>
 </div>
 
+<%--图库管理--%>
+<div>
+    <a href="admin_image_list">图库管理</a>
+</div>
+
 </body>
 </html>

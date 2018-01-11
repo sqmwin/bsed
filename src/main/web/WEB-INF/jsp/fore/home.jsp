@@ -79,6 +79,7 @@
         </li>
         <li><a href="follow">关注蓝海</a></li>
         <li><a href="admin">后台管理</a></li>
+        <li><a href="${pageContext.request.contextPath}/test/uploadPage.jsp">upload</a></li>
     </ul>
 </div>
 </body>

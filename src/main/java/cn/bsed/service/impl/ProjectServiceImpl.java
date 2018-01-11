@@ -7,7 +7,6 @@ import cn.bsed.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -38,7 +37,7 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     public void update(Project project) {
-       projectMapper.updateByPrimaryKeySelective(project);
+        projectMapper.updateByPrimaryKeySelective(project);
     }
 
     @Override

@@ -23,7 +23,7 @@
             <th>分类id</th>
             <th>分类类型</th>
             <th>项目标题</th>
-            <th>项目图片url</th>
+            <th>项目图片</th>
         </tr>
         </thead>
         <tbody>
@@ -35,7 +35,8 @@
                 <td>
                     <a href="show_project?id=${p.id}">${p.title}</a>
                 </td>
-                <td>${p.imageUrl}</td>
+                <%--<td>${p.imageUrl}</td>--%>
+                <td><img src="${pageContext.request.contextPath}/img/1.jpg" alt="" height="200" width="400"></td>
             </tr>
         </c:forEach>
         </tbody>
