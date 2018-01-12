@@ -19,9 +19,9 @@ public class FileUpLoad {
      *<p>
      *@param file   要上传的文件
      *@param filePath   要上传文件的服务器路径
-     *@return boolean   是否上传成功
+     *@return File   上传的文件
      */
-    public static boolean saveFile(MultipartFile file, String filePath) throws IOException {
+    public static File saveFile(MultipartFile file, String filePath) throws IOException {
         //判断是否为空
         if (!file.isEmpty()) {
             File saveFile = new File(filePath);
@@ -30,9 +30,9 @@ public class FileUpLoad {
             }
             //转存文件
             file.transferTo(saveFile);
-            return true;
+            return saveFile;
         }
-        return false;
+        return null;
     }
 
     /**

@@ -36,7 +36,7 @@
                     <a href="show_project?id=${p.id}">${p.title}</a>
                 </td>
                 <%--<td>${p.imageUrl}</td>--%>
-                <td><img src="${pageContext.request.contextPath}/img/1.jpg" alt="" height="200" width="400"></td>
+                <td><img src="${pageContext.request.contextPath}/${p.imageUrl}" alt="${p.imageUrl}" height="200" width="300"></td>
             </tr>
         </c:forEach>
         </tbody>

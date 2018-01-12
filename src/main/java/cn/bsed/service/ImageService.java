@@ -1,7 +1,6 @@
 package cn.bsed.service;
 
 import cn.bsed.pojo.Image;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -9,7 +8,6 @@ import java.util.List;
  * @author SQM
  * @create 2018/1/11
  */
-@Service
 public interface ImageService {
     /**
      *<p> 增

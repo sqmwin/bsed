@@ -5,6 +5,7 @@ import cn.bsed.pojo.Image;
 import cn.bsed.pojo.ImageExample;
 import cn.bsed.service.ImageService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -14,6 +15,7 @@ import java.util.List;
  * @author SQM
  * @create 2018/1/11
  */
+@Service
 public class ImageServiceImpl implements ImageService {
     @Autowired
     ImageMapper imageMapper;
@@ -35,6 +37,8 @@ public class ImageServiceImpl implements ImageService {
 
     @Override
     public List<Image> listAll() {
-        return imageMapper.selectByExample(new ImageExample());
+        ImageExample example = new ImageExample();
+        example.setOrderByClause("id desc");
+        return imageMapper.selectByExample(example);
     }
 }

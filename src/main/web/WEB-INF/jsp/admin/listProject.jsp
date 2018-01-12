@@ -12,6 +12,7 @@
 <html>
 <head>
     <title>项目管理页面</title>
+    <script src="${pageContext.request.contextPath}/js/jquery/jquery-3.2.1.min.js"></script>
     <script type="text/javascript">
         <%--生成年份下拉列表--%>
         function createYear() {
@@ -47,7 +48,7 @@
             <th>占地面积</th>
             <th>设计时间</th>
             <th>项目页面url</th>
-            <th>项目图片url</th>
+            <th>项目图片</th>
         </tr>
         </thead>
         <tbody>
@@ -69,7 +70,11 @@
                     <fmt:formatDate value="${project.time}" pattern="yyyy"/>
                 </td>
                 <td>${project.projectPageUrl}</td>
-                <td>${project.imageUrl}</td>
+                <td>
+                    <a href="admin_select_project_image_page?id=${project.id}">
+                    <img src="${pageContext.request.contextPath}/${project.imageUrl}" alt="${project.imageUrl}" width="300" height="200"><br/>
+                    更改项目图片</a>
+                </td>
                 <td>
                     <a href="admin_edit_project_page?id=${project.id}">编辑项目</a>
                 </td>
@@ -94,7 +99,7 @@
                 <th>占地面积</th>
                 <th>设计时间</th>
                 <th>项目页面url</th>
-                <th>项目图片url</th>
+                <th></th>
             </tr>
                 <tr>
                     <td>项目id自动给出</td>
@@ -123,7 +128,7 @@
                         </select>年
                     </td>
                     <td><input  id="projectPageUrl" name="projectPageUrl" type="text"></td>
-                    <td><input  id="imageUrl" name="imageUrl" type="text"></td>
+                    <td></td>
                     <td colspan="2" align="center">
                         <button type="submit">新增项目</button>
                     </td>
@@ -133,8 +138,48 @@
     </table>
 </div>
 
+<%--pageHelp分页--%>
 <div>
+<script>
+    $(function () {
+        $("ul.pagenation li.disabled a").click(function () {
+            return false;
+        })
+    })
+</script>
 
+    <nav>
+        <ul class="pagenation">
+            <li <c:if test="${!page.hasPrevious}">class="disabled"</c:if>>
+                <a href="?start=0" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+
+            <li <c:if test="${!page.hasPrevious}">class="disabled"</c:if>>
+                <a href="?start=${page.start - page.count}" aria-label="Previous">
+                    <span aria-hidden="true">&lsaquo;</span>
+                </a>
+            </li>
+
+            <c:forEach begin="0" end="${page.totalPage-1}" varStatus="status">
+                <li <c:if test="${status.index * page.count == page.start}">class="disabled"</c:if>>
+                    <a href="?start=${status.index * page.count}" <c:if test="${status.index * page.count == page.start}">class="current"</c:if>>${status.count}</a>
+                </li>
+            </c:forEach>
+
+            <li <c:if test="${!page.hasNext}">class="disabled"</c:if>>
+                <a href="?start=${page.start + page.count}" aria-label="Next">
+                    <span aria-hidden="true">&rsaquo;</span>
+                </a>
+            </li>
+            <li <c:if test="${!page.hasNext}">class="disabled"</c:if>>
+                <a href="?start=${page.last}" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
 </div>
 </body>
 </html>

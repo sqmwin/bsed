@@ -1,18 +1,19 @@
 package cn.bsed.controller;
 
-import cn.bsed.pojo.Category;
 import cn.bsed.pojo.Project;
 import cn.bsed.service.CategoryService;
 import cn.bsed.service.ProjectService;
+import cn.bsed.util.page.Page;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.Instant;
 import java.util.Date;
 import java.util.List;
 
@@ -37,10 +38,15 @@ public class ProjectController {
      * @return 项目管理页面
      */
     @RequestMapping("admin_project_list")
-    public String listAllProjects(Model model) {
+    public String listAllProjects(Page page,Model model) {
+        PageHelper.offsetPage(page.getStart(), page.getCount());
         List<Project> projects = projectService.listAll();
-        List<Category> categories = categoryService.listAll();
+
+        int total = (int) new PageInfo<>(projects).getTotal();
+        page.setTotal(total);
+
         model.addAttribute("projects", projects);
+        model.addAttribute("page", page);
         return "admin/listProject";
     }
 
@@ -68,7 +74,7 @@ public class ProjectController {
      * @return 项目管理页面
      */
     @RequestMapping("admin_project_edit")
-    public String edit(Project project,String year) throws ParseException {
+    public String edit(Project project, String year) throws ParseException {
         //设置设计时间
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy");
         Date time = simpleDateFormat.parse(year);
@@ -80,12 +86,12 @@ public class ProjectController {
     /**
      * <p>   删除项目
      *
-     * @param id 要删除项目的id
+     * @param id    要删除项目的id
      * @param model 删除的结果
      * @return 删除项目通知页面
      */
     @RequestMapping("admin_project_delete")
-    public String delete(Integer id,Model model) {
+    public String delete(Integer id, Model model) {
         projectService.delete(id);
         List<Project> projects = projectService.listAll();
         for (Project project : projects) {
@@ -96,5 +102,14 @@ public class ProjectController {
             }
         }
         return "admin/deleteProject";
+    }
+
+    //选择项目图片
+    @RequestMapping("admin_image_select")
+    public String selectImage(@RequestParam("id") Integer id,@RequestParam("imageUrl") String imageUrl) {
+        Project project = projectService.get(id);
+        project.setImageUrl(imageUrl);
+        projectService.update(project);
+        return "redirect:admin_project_list";
     }
 }

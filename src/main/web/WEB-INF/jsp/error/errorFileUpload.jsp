@@ -11,6 +11,12 @@
     <title>Title</title>
 </head>
 <body>
-上传超过2m大小
+<div>
+    <form action="admin_image_list">
+        <button type="submit">返回上一级</button>
+    </form>
+</div>
+${result}
+
 </body>
 </html>
