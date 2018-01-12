@@ -90,10 +90,7 @@ public class Page {
      *@return boolean   是返回true，否返回false
      */
     public boolean isHasPrevious() {
-        if (start == 0) {
-            return false;
-        }
-        return true;
+        return !(start == 0);
     }
 
     /**
@@ -102,10 +99,7 @@ public class Page {
      * @return boolean
      */
     public boolean isHasNext() {
-        if (start == getLast()) {
-            return false;
-        }
-        return true;
+        return !(start == getLast());
     }
 
     public int getStart() {

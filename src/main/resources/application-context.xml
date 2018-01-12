@@ -70,7 +70,8 @@
             <bean class="com.github.pagehelper.PageInterceptor">
                 <property name="properties">
                     <value>
-                        
+                        helperDialect=mysql
+                        reasonable=true
                     </value>
                 </property>
             </bean>

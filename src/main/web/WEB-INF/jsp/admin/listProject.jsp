@@ -25,6 +25,8 @@
             }
         }
     </script>
+
+
 </head>
 <body onload="createYear()">
 <div>
@@ -52,34 +54,34 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${projects}" var="project">
+        <c:forEach items="${projects}" var="p">
             <tr>
-                <td>${project.id}</td>
-                <td>${project.categoryId}</td>
-                <td>${project.categoryType}</td>
-                <td>${project.title}</td>
-                <td>${project.description}</td>
+                <td>${p.id}</td>
+                <td>${p.categoryId}</td>
+                <td>${p.categoryType}</td>
+                <td>${p.title}</td>
+                <td>${p.description}</td>
                 <td>
-                    <fmt:formatDate value="${project.createDate}" pattern="yyyy-MM-dd"/>
+                    <fmt:formatDate value="${p.createDate}" pattern="yyyy-MM-dd"/>
                 </td>
-                <td>${project.name}</td>
-                <td>${project.owner}</td>
-                <td>${project.location}</td>
-                <td>${project.area}㎡</td>
+                <td>${p.name}</td>
+                <td>${p.owner}</td>
+                <td>${p.location}</td>
+                <td>${p.area}㎡</td>
                 <td>
-                    <fmt:formatDate value="${project.time}" pattern="yyyy"/>
+                    <fmt:formatDate value="${p.time}" pattern="yyyy"/>
                 </td>
-                <td>${project.projectPageUrl}</td>
+                <td>${p.projectPageUrl}</td>
                 <td>
-                    <a href="admin_select_project_image_page?id=${project.id}">
-                    <img src="${pageContext.request.contextPath}/${project.imageUrl}" alt="${project.imageUrl}" width="300" height="200"><br/>
+                    <a href="admin_select_project_image_page?id=${p.id}">
+                    <img src="${pageContext.request.contextPath}/${p.imageUrl}" alt="${p.imageUrl}" width="300" height="200"><br/>
                     更改项目图片</a>
                 </td>
                 <td>
-                    <a href="admin_edit_project_page?id=${project.id}">编辑项目</a>
+                    <a href="admin_edit_project_page?id=${p.id}">编辑项目</a>
                 </td>
                 <td>
-                    <a href="admin_project_delete?id=${project.id}">删除项目</a>
+                    <a href="admin_project_delete?id=${p.id}">删除项目</a>
                 </td>
             </tr>
         </c:forEach>
@@ -140,14 +142,15 @@
 
 <%--pageHelp分页--%>
 <div>
-<script>
-    $(function () {
-        $("ul.pagenation li.disabled a").click(function () {
-            return false;
-        })
-    })
-</script>
-
+    <style>
+        nav ul {
+            list-style: none;
+        }
+        nav ul li {
+            float: left;
+            width: 20px;
+        }
+    </style>
     <nav>
         <ul class="pagenation">
             <li <c:if test="${!page.hasPrevious}">class="disabled"</c:if>>
@@ -182,4 +185,11 @@
     </nav>
 </div>
 </body>
+<script type="text/javascript">
+    $(function () {
+        $("ul.pagenation li.disabled a").click(function () {
+            return false;
+        })
+    })
+</script>
 </html>
