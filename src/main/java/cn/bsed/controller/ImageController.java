@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -19,7 +20,7 @@ import java.util.List;
  * <p>
  *
  * @author SQM
- * @create 2018/1/11
+ * @since 2018/1/11
  */
 @Controller
 @RequestMapping("")
@@ -27,7 +28,9 @@ public class ImageController {
     @Autowired
     ImageService imageService;
 
-    //通过Spring的autowired注解获取spring默认配置的request
+    /**
+     *<p>通过Spring的autowired注解获取spring默认配置的request
+     */
     @Autowired
     HttpServletRequest request;
 
@@ -37,7 +40,7 @@ public class ImageController {
      * @param model 所有image的数据
      * @return 图库管理页面
      */
-    @RequestMapping("admin_image_list")
+    @RequestMapping(value = "/admin_image_list",method = RequestMethod.GET)
     public String list(Model model) {
         List<Image> images = imageService.listAll();
         model.addAttribute("images", images);
@@ -50,7 +53,7 @@ public class ImageController {
      * @param file 上传的图片
      * @return 图库管理页面
      */
-    @RequestMapping("admin_image_add")
+    @RequestMapping(value = "/admin_image_add",method = RequestMethod.POST)
     public String add(@RequestParam("image") MultipartFile file,Model model) {
         //判断文件是否未选择
         if (file.isEmpty()) {
@@ -71,11 +74,13 @@ public class ImageController {
                 //存储到服务器
                 try {
                     File saveFile = FileUpLoad.saveFile(file, fileAbsolutePath);
-                    FileUpLoad.changeToJpg(saveFile);
-                    //获取返回的文件名存入数据库image表中
-                    Image image = new Image();
-                    image.setUrl(fileRelativePath);
-                    imageService.add(image);
+                    if (saveFile != null) {
+                        FileUpLoad.changeToJpg(saveFile);
+                        //获取返回的文件名存入数据库image表中
+                        Image image = new Image();
+                        image.setUrl(fileRelativePath);
+                        imageService.add(image);
+                    }
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -84,8 +89,8 @@ public class ImageController {
         return "redirect:admin_image_list";
     }
 
-    @RequestMapping("admin_image_delete")
-    public String delete(Integer id, Model model) {
+    @RequestMapping(value = "/admin_image_delete",method = RequestMethod.GET)
+    public String delete(Integer id) {
         imageService.delete(id);
         return "admin/deleteImage";
     }

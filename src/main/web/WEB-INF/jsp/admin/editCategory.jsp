@@ -1,4 +1,4 @@
-<%@ page import="org.springframework.ui.Model" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: sqm
   Date: 2018-01-09
@@ -14,7 +14,7 @@
 <body>
 <div>编辑分类</div>
 <div>
-    <form method="post" action="admin_category_edit">
+    <form method="post" action="${pageContext.request.contextPath}/admin_category_edit">
         <table>
             <tr>
                 <td>分类名称</td>

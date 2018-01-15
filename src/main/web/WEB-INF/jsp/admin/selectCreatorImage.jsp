@@ -9,7 +9,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
-    <title>选择项目图片</title>
+    <title>选择主创图片</title>
 </head>
 <body>
 <div>
@@ -18,13 +18,13 @@
         <c:forEach items="${images}" var="i">
             <tr>
                 <th><img src="${pageContext.request.contextPath}/${i.url}" alt="${i.url}" width="300" height="200"></th>
-                <th><a href="${pageContext.request.contextPath}/admin_image_select?id=${project_id}&imageUrl=${i.url}">选择</a></th>
+                <th><a href="${pageContext.request.contextPath}/admin_creator_image_select?id=${creator_id}&imageUrl=${i.url}">选择</a></th>
             </tr>
         </c:forEach>
         </tbody>
         <tfoot>
             <tr>
-                <th><a href="${pageContext.request.contextPath}/admin_project_list">取消</a></th>
+                <th><a href="${pageContext.request.contextPath}/admin_creator_list">取消</a></th>
             </tr>
         </tfoot>
     </table>

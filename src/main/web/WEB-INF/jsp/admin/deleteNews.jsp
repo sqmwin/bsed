@@ -9,13 +9,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>删除项目通知页面</title>
-    <meta http-equiv="refresh" content ="5;url=${pageContext.request.contextPath}/admin_project_list">
+    <title>删除新闻通知页面</title>
+    <meta http-equiv="refresh" content ="5;url=${pageContext.request.contextPath}/admin_news_list">
     <script type="text/javascript">
         var i = 6;
         function shownum(){
             i=i-1;
-            document.getElementById("time").innerHTML=i+"秒后自动跳转项目管理界面";
+            document.getElementById("time").innerHTML=i+"秒后自动跳转到新闻管理界面";
             setTimeout('shownum()',1001);
         }
     </script>

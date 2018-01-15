@@ -10,7 +10,7 @@
 <html>
 <head>
     <title>删除分类通知页面</title>
-    <meta http-equiv="refresh" content ="5;url=admin_category_list">
+    <meta http-equiv="refresh" content ="5;url=${pageContext.request.contextPath}/admin_category_list">
     <script type="text/javascript">
         var i = 6;
         function shownum(){
@@ -23,7 +23,7 @@
 <body onload="shownum()">
 <div>
     <c:choose>
-        <c:when test="${result.equals('true')}">删除成功</c:when>
+        <c:when test="${result}">删除成功</c:when>
         <c:otherwise>删除失败</c:otherwise>
     </c:choose>
 </div>

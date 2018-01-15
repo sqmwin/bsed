@@ -49,36 +49,36 @@
 <div id="menu">
     <ul>
         <li><a href="#">首页</a></li>
-        <li class="navbar"><a href="list_projects_by_category_type?categoryType=type_landscape">景观设计</a>
+        <li class="navbar"><a href="${pageContext.request.contextPath}/list_projects_by_category_type?categoryType=type_landscape">景观设计</a>
             <ul>
-                <li><a href="list_projects_by_category_id?categoryId=1">${c[0].name}</a></li>
-                <li><a href="list_projects_by_category_id?categoryId=2">${c[1].name}</a></li>
+                <li><a href="${pageContext.request.contextPath}/list_projects_by_category_id?categoryId=1">${c[0].name}</a></li>
+                <li><a href="${pageContext.request.contextPath}/list_projects_by_category_id?categoryId=2">${c[1].name}</a></li>
             </ul>
         </li>
-        <li class="navbar"><a href="list_projects_by_category_type?categoryType=type_tourism">旅游规划</a>
+        <li class="navbar"><a href="${pageContext.request.contextPath}/list_projects_by_category_type?categoryType=type_tourism">旅游规划</a>
             <ul>
-                <li><a href="list_projects_by_category_id?categoryId=3">${c[2].name}</a></li>
-                <li><a href="list_projects_by_category_id?categoryId=4">${c[3].name}</a></li>
-                <li><a href="list_projects_by_category_id?categoryId=5">${c[4].name}</a></li>
+                <li><a href="${pageContext.request.contextPath}/list_projects_by_category_id?categoryId=3">${c[2].name}</a></li>
+                <li><a href="${pageContext.request.contextPath}/list_projects_by_category_id?categoryId=4">${c[3].name}</a></li>
+                <li><a href="${pageContext.request.contextPath}/list_projects_by_category_id?categoryId=5">${c[4].name}</a></li>
             </ul>
         </li>
-        <li><a href="list_projects_by_category_type?categoryType=type_decoration">建筑装饰设计</a></li>
-        <li><a href="list_projects_by_category_type?categoryType=type_wonderland">智慧乐园</a></li>
-        <li><a href="list_projects_by_category_type?categoryType=type_art">艺术雕塑</a></li>
-        <li><a href="list_projects_by_category_type?categoryType=type_garden">苗圃种植</a></li>
+        <li><a href="${pageContext.request.contextPath}/list_projects_by_category_type?categoryType=type_decoration">建筑装饰设计</a></li>
+        <li><a href="${pageContext.request.contextPath}/list_projects_by_category_type?categoryType=type_wonderland">智慧乐园</a></li>
+        <li><a href="${pageContext.request.contextPath}/list_projects_by_category_type?categoryType=type_art">艺术雕塑</a></li>
+        <li><a href="${pageContext.request.contextPath}/list_projects_by_category_type?categoryType=type_garden">苗圃种植</a></li>
         <li class="navbar"><a href="#">关于蓝海</a>
             <ul>
-                <li><a href="philosophy">${c[5].name}</a></li>
-                <li><a href="list_news">${c[6].name}</a></li>
-                <li><a href="honor">${c[7].name}</a></li>
-                <li><a href="list_creators">${c[8].name}</a></li>
-                <li><a href="list_profession">${c[9].name}</a></li>
-                <li><a href="join">${c[10].name}</a></li>
-                <li><a href="partner">${c[11].name}</a></li>
+                <li><a href="${pageContext.request.contextPath}/philosophy">${c[5].name}</a></li>
+                <li><a href="${pageContext.request.contextPath}/list_news">${c[6].name}</a></li>
+                <li><a href="${pageContext.request.contextPath}/honor">${c[7].name}</a></li>
+                <li><a href="${pageContext.request.contextPath}/list_creators?categoryId=9">${c[8].name}</a></li>
+                <li><a href="${pageContext.request.contextPath}/list_profession?categoryId=10">${c[9].name}</a></li>
+                <li><a href="${pageContext.request.contextPath}/join">${c[10].name}</a></li>
+                <li><a href="${pageContext.request.contextPath}/partner">${c[11].name}</a></li>
             </ul>
         </li>
-        <li><a href="follow">关注蓝海</a></li>
-        <li><a href="admin">后台管理</a></li>
+        <li><a href="${pageContext.request.contextPath}/follow">关注蓝海</a></li>
+        <li><a href="${pageContext.request.contextPath}/admin">后台管理</a></li>
         <li><a href="${pageContext.request.contextPath}/test/uploadPage.jsp">upload</a></li>
     </ul>
 </div>

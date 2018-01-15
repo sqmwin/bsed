@@ -10,7 +10,7 @@
 <html>
 <head>
     <title>删除图片通知页面</title>
-    <meta http-equiv="refresh" content ="5;url=admin_image_list">
+    <meta http-equiv="refresh" content ="5;url=${pageContext.request.contextPath}/admin_image_list">
     <script type="text/javascript">
         var i = 6;
         function shownum(){

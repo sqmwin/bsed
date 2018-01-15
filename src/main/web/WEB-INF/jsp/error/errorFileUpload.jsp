@@ -12,7 +12,7 @@
 </head>
 <body>
 <div>
-    <form action="admin_image_list">
+    <form action="${pageContext.request.contextPath}/admin_image_list">
         <button type="submit">返回上一级</button>
     </form>
 </div>

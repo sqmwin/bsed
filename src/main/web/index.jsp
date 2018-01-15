@@ -1,3 +1,4 @@
+
 <%
-    response.sendRedirect("forehome");
+    response.sendRedirect(request.getContextPath()+ "/forehome");
 %>

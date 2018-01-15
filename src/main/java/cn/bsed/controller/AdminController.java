@@ -1,15 +1,12 @@
 package cn.bsed.controller;
 
-import cn.bsed.pojo.Category;
-import cn.bsed.pojo.Image;
-import cn.bsed.pojo.Project;
-import cn.bsed.service.CategoryService;
-import cn.bsed.service.ImageService;
-import cn.bsed.service.ProjectService;
+import cn.bsed.pojo.*;
+import cn.bsed.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
@@ -28,13 +25,19 @@ public class AdminController {
     ProjectService projectService;
     @Autowired
     ImageService imageService;
+    @Autowired
+    NewsService newsService;
+    @Autowired
+    CreatorService creatorService;
+    @Autowired
+    ProfessionService professionService;
 
     /**
      * <p>   后台管理主页
      *
      * @return 后台管理主页
      */
-    @RequestMapping("admin_home")
+    @RequestMapping(value = "/admin_home",method = RequestMethod.GET)
     public String adminHomePage() {
         return "admin/home";
     }
@@ -46,7 +49,7 @@ public class AdminController {
      * @param model 被编辑的分类
      * @return 分类编辑页面
      */
-    @RequestMapping("admin_edit_category_page")
+    @RequestMapping(value = "/admin_edit_category_page",method = RequestMethod.GET)
     public String adminEditCategoryPage(Integer id, Model model) {
         Category category = categoryService.get(id);
         model.addAttribute("category", category);
@@ -60,15 +63,49 @@ public class AdminController {
      * @param model 被编辑的项目
      * @return 项目编辑页面
      */
-    @RequestMapping("admin_edit_project_page")
+    @RequestMapping(value = "/admin_edit_project_page",method = RequestMethod.GET)
     public String adminEditProjectPage(Integer id, Model model) {
         Project project = projectService.get(id);
         model.addAttribute("project", project);
         return "admin/editProject";
     }
 
-    //项目图片选择页面
-    @RequestMapping("admin_select_project_image_page")
+    /**
+     * <p>   新闻编辑页面
+     *
+     * @param id    被编辑的新闻的id
+     * @param model 被编辑的新闻
+     * @return 新闻编辑页面
+     */
+    @RequestMapping(value = "/admin_edit_news_page",method = RequestMethod.GET)
+    public String adminEditNewsPage(Integer id, Model model) {
+        News news = newsService.get(id);
+        model.addAttribute("news", news);
+        return "admin/editNews";
+    }
+
+    @RequestMapping(value = "/admin_edit_creator_page",method = RequestMethod.GET)
+    public String adminEditCreatorPage(Integer id, Model model) {
+        Creator creator = creatorService.get(id);
+        model.addAttribute("creator", creator);
+        return "admin/editCreator";
+    }
+
+    @RequestMapping(value = "/admin_edit_profession_page",method = RequestMethod.GET)
+    public String adminEditProfessionPage(Integer id, Model model) {
+        Profession profession = professionService.get(id);
+        model.addAttribute("profession", profession);
+        return "admin/editProfession";
+    }
+
+    /**
+     *<p>项目图片选择页面
+     *
+     *@param id 项目的id
+     *@param model  项目的id及所有image数据
+     *@return java.lang.String  项目图片选择页面
+     */
+    @RequestMapping(value = "/admin_select_project_image_page",method = RequestMethod.GET)
     public String adminSelectProjectImagePage(Integer id, Model model) {
         List<Image> images = imageService.listAll();
         model.addAttribute("project_id", id);
@@ -76,9 +113,43 @@ public class AdminController {
         return "admin/selectProjectImage";
     }
 
-    //上传失败页面
-    @RequestMapping("errorFileUpload")
+    /**
+     *<p>新闻图片选择页面
+     *
+     *@param id 新闻的id
+     *@param model  新闻的id及所有image数据
+     *@return java.lang.String  新闻图片选择页面
+     */
+    @RequestMapping(value = "/admin_select_news_image_page",method = RequestMethod.GET)
+    public String adminSelectNewsImagePage(Integer id, Model model) {
+        List<Image> images = imageService.listAll();
+        model.addAttribute("news_id", id);
+        model.addAttribute("images", images);
+        return "admin/selectNewsImage";
+    }
+
+    @RequestMapping(value = "/admin_select_creator_image_page",method = RequestMethod.GET)
+    public String adminSelectCreatorImagePage(Integer id, Model model) {
+        List<Image> images = imageService.listAll();
+        model.addAttribute("creator_id", id);
+        model.addAttribute("images", images);
+        return "admin/selectCreatorImage";
+    }
+    @RequestMapping(value = "/admin_select_profession_image_page",method = RequestMethod.GET)
+    public String adminSelectProfessionImagePage(Integer id, Model model) {
+        List<Image> images = imageService.listAll();
+        model.addAttribute("profession_id", id);
+        model.addAttribute("images", images);
+        return "admin/selectProfessionImage";
+    }
+    /**
+     *<p>上传失败页面
+     *
+     *@return java.lang.String  上传文件失败页面
+     */
+    @RequestMapping(value = "/errorFileUpload",method = RequestMethod.GET)
     public String errorFileUpload() {
         return "error/errorFileUpload";
     }
+
 }

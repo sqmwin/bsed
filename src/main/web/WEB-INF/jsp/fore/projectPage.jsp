@@ -10,11 +10,11 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
-    <title>项目页面</title>
+    <title>${project.title}</title>
 </head>
 <body>
 <div>
-    <a href="forehome">返回主页</a>
+    <a href="${pageContext.request.contextPath}/forehome">返回主页</a>
 </div>
 <div>
     <table>

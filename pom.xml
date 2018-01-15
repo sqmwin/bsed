@@ -228,7 +228,12 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.44</version>
         </dependency>
-        
+
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>RELEASE</version>
+        </dependency>
     </dependencies>
 
 

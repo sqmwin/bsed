@@ -13,7 +13,7 @@
 </head>
 <body>
 <div>
-    <a href="forehome">返回主页</a>
+    <a href="${pageContext.request.contextPath}/forehome">返回主页</a>
 </div>
 <div>
     <table>
@@ -33,7 +33,7 @@
                 <td>${p.categoryId}</td>
                 <td>${p.categoryType}</td>
                 <td>
-                    <a href="show_project?id=${p.id}">${p.title}</a>
+                    <a href="${pageContext.request.contextPath}/show_project?id=${p.id}">${p.title}</a>
                 </td>
                 <%--<td>${p.imageUrl}</td>--%>
                 <td><img src="${pageContext.request.contextPath}/${p.imageUrl}" alt="${p.imageUrl}" height="200" width="300"></td>

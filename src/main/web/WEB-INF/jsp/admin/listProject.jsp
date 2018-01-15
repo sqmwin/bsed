@@ -30,7 +30,7 @@
 </head>
 <body onload="createYear()">
 <div>
-    <form action="admin_home">
+    <form action="${pageContext.request.contextPath}/admin_home">
         <button type="submit">返回上一级</button>
     </form>
 </div>
@@ -73,20 +73,20 @@
                 </td>
                 <td>${p.projectPageUrl}</td>
                 <td>
-                    <a href="admin_select_project_image_page?id=${p.id}">
+                    <a href="${pageContext.request.contextPath}/admin_select_project_image_page?id=${p.id}">
                     <img src="${pageContext.request.contextPath}/${p.imageUrl}" alt="${p.imageUrl}" width="300" height="200"><br/>
                     更改项目图片</a>
                 </td>
                 <td>
-                    <a href="admin_edit_project_page?id=${p.id}">编辑项目</a>
+                    <a href="${pageContext.request.contextPath}/admin_edit_project_page?id=${p.id}">编辑项目</a>
                 </td>
                 <td>
-                    <a href="admin_project_delete?id=${p.id}">删除项目</a>
+                    <a href="${pageContext.request.contextPath}/admin_project_delete?id=${p.id}">删除项目</a>
                 </td>
             </tr>
         </c:forEach>
         </tbody>
-        <form method="post" action="admin_project_add">
+        <form method="post" action="${pageContext.request.contextPath}/admin_project_add">
         <tfoot>
             <tr>
                 <td>新增项目</td>

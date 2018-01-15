@@ -6,12 +6,31 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
     <title>新闻页面</title>
 </head>
 <body>
-读取news表的信息,与projects表类似<br/>
-news表:id,category_id,category_type,title,time,news_page_url,image_url
+<div>
+    <table>
+        <thead>
+        <tr>
+            <th>新闻标题</th>
+            <th>新闻图片</th>
+        </tr>
+        </thead>
+        <tbody>
+        <c:forEach items="${newsList}" var="n">
+            <tr>
+                <td>
+                    <a href="${pageContext.request.contextPath}/show_news?id=${n.id}">${n.title}</a>
+                </td>
+                <td><img src="${pageContext.request.contextPath}/${n.imageUrl}" alt="${n.imageUrl}" height="200" width="300"></td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>

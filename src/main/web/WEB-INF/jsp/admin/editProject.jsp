@@ -1,4 +1,3 @@
-
 <%--
   Created by IntelliJ IDEA.
   User: sqm
@@ -33,7 +32,7 @@
 <c:set var="p" value="${project}"/>
 <div>编辑项目</div>
 <div>
-    <form method="post" action="admin_project_edit">
+    <form method="post" action="${pageContext.request.contextPath}/admin_project_edit">
         <table>
             <tr>
                 <td>项目id</td>
@@ -48,7 +47,6 @@
                 <td>占地面积</td>
                 <td>设计时间</td>
                 <td>项目页面url</td>
-                <td>项目图片url</td>
             </tr>
             <tr>
                 <td>${p.id}<input type="hidden" id="id" name="id" value="${p.id}"/> </td>
@@ -95,7 +93,6 @@
                     <input type="text" id="year" name="year" size="4" maxlength="4" value="<fmt:formatDate value="${p.time}" pattern="yyyy"/>">年
                 </td>
                 <td><input type="text" id="projectPageUrl" name="projectPageUrl" value="${p.projectPageUrl}"></td>
-                <td><input type="text" id="imageUrl" name="imageUrl" value="${p.imageUrl}"></td>
             </tr>
 
             <tr>

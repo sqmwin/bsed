@@ -10,10 +10,14 @@
 <html>
 <head>
     <title>分类管理</title>
+    <%--<script src="${pageContext.request.contextPath}/js/jquery/jquery-3.2.1.min.js"></script>--%>
+    <%--<script type="text/javascript">--%>
+        <%--var url = path + 'listCategory.jsp';--%>
+    <%--</script>--%>
 </head>
 <body>
 <div>
-    <form action="admin_home">
+    <form action="${pageContext.request.contextPath}/admin_home">
         <button type="submit">返回上一级</button>
     </form>
 </div>
@@ -35,15 +39,15 @@
                 <td>${c.type}</td>
                 <td>${c.description}</td>
                 <td>
-                    <a href="admin_edit_category_page?id=${c.id}">编辑分类</a>
+                    <a href="${pageContext.request.contextPath}/admin_edit_category_page?id=${c.id}">编辑分类</a>
                 </td>
                 <td>
-                    <a href="admin_category_delete?id=${c.id}">删除分类</a>
+                    <a href="${pageContext.request.contextPath}/admin_category_delete?id=${c.id}">删除分类</a>
                 </td>
             </tr>
         </c:forEach>
         </tbody>
-        <form method="post" action="admin_category_add">
+        <form method="post" action="${pageContext.request.contextPath}/admin_category_add">
         <tfoot>
             <tr>
                 <td>新增分类</td>

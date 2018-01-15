@@ -3,6 +3,7 @@ package cn.bsed.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
@@ -14,16 +15,18 @@ import java.io.File;
  * <p>
  *
  * @author SQM
- * @create 2018/1/11
+ * @since 2018/1/11
  */
 @Controller
 @RequestMapping("")
 public class FileUploadController {
-    //通过Spring的autowired注解获取spring默认配置的request
+    /**
+     *<p>通过Spring的autowired注解获取spring默认配置的request
+     */
     @Autowired
     private HttpServletRequest request;
 
-    @RequestMapping("result")
+    @RequestMapping(value = "/result",method = RequestMethod.GET)
     public String result() {
         return "/test/result";
     }
@@ -31,8 +34,8 @@ public class FileUploadController {
     /***
      * 保存文件
      *
-     * @param file
-     * @return
+     * @param file  要上传的文件
+     * @return  判断文件是否为空
      */
     private boolean saveFile(MultipartFile file) {
         // 判断文件是否为空
@@ -62,8 +65,8 @@ public class FileUploadController {
     /**
      * 上传图片
      *
-     * @param file
-     * @return
+     * @param file  要上传的图片
+     * @return  上传结果页面
      */
     @RequestMapping("fileUpload")
     public String filesUpload(@RequestParam("file") MultipartFile file) {
@@ -77,7 +80,7 @@ public class FileUploadController {
 
     /**
      * 读取上传文件中得所有文件并返回
-     * @return
+     * @return  上传文件的管理页面
      */
     @RequestMapping("list")
     public ModelAndView list() {
@@ -85,9 +88,10 @@ public class FileUploadController {
         ModelAndView mav = new ModelAndView("list");
         File uploadDest = new File(filePath);
         String[] fileNames = uploadDest.list();
-        for (int i = 0; i < fileNames.length; i++) {
-            //打印出文件名
-            System.out.println(fileNames[i]);
+        if (fileNames != null) {
+            for (String fileName : fileNames) {
+                System.out.println(fileName);
+            }
         }
         return mav;
     }
