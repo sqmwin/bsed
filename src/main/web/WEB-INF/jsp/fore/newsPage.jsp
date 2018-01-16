@@ -14,7 +14,7 @@
 </head>
 <body>
 <div>
-    <a href="${pageContext.request.contextPath}/forehome">返回主页</a>
+    <a href="${pageContext.request.contextPath}/list_news">返回上一页</a>
 </div>
 <div>
     <table>

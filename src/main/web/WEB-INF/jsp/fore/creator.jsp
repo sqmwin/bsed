@@ -13,6 +13,9 @@
 </head>
 <body>
 <div>
+    <a href="${pageContext.request.contextPath}/forehome">返回主页</a>
+</div>
+<div>
     <table>
         <thead>
         <tr>

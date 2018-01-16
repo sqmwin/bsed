@@ -35,6 +35,7 @@
     </connection>
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-list connection-id="6ac9edaf-806b-408e-ba3a-59c681e526aa" dataset="bsed.profession" active-filter-id="EMPTY_FILTER" />
     <filter-list connection-id="6ac9edaf-806b-408e-ba3a-59c681e526aa" dataset="bsed.category" active-filter-id="EMPTY_FILTER" />
     <filter-list connection-id="6ac9edaf-806b-408e-ba3a-59c681e526aa" dataset="bsed.news" active-filter-id="EMPTY_FILTER" />
   </component>

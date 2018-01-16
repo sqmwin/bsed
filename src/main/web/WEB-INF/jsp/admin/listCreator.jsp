@@ -62,7 +62,7 @@
                 <td>主创id自动生成</td>
                 <td><input  id="name" name="name" type="text"></td>
                 <td><input  id="jobTitle" name="jobTitle" type="text"></td>
-                <td><textarea name="description" id="description" cols="50" rows="10">${c.description}</textarea></td>
+                <td><textarea name="description" id="description" cols="50" rows="10"></textarea></td>
                 <td colspan="2" align="center">
                     <button type="submit">新增主创</button>
                 </td>

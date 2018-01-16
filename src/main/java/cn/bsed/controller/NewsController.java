@@ -25,6 +25,13 @@ public class NewsController {
     @Autowired
     NewsService newsService;
 
+    /**
+     *listAll
+     *<p>   获取全部新闻数据并通过分页展示
+     *@param page   分页对象
+     *@param model  所有新闻数据及分页对象
+     *@return java.lang.String  后台新闻管理页面
+     */
     @RequestMapping(value = "/admin_news_list",method = RequestMethod.GET)
     public String listAll(Page page, Model model) {
         //page.setCount(2);
@@ -39,6 +46,12 @@ public class NewsController {
         return "admin/listNews";
     }
 
+    /**
+     *add
+     *<p>   添加一条新闻数据
+     *@param news   被添加的新闻数据
+     *@return java.lang.String  新闻列表Controller
+     */
     @RequestMapping(value = "/admin_news_add",method = RequestMethod.POST)
     public String add(News news) {
         news.setCategoryId(7);
@@ -49,6 +62,13 @@ public class NewsController {
         return "redirect:admin_news_list";
     }
 
+    /**
+     *selectImage
+     *<p>   选择或更改指定id新闻的图片
+     *@param id 要更改图片的新闻的id
+     *@param imageUrl 要更改图片的url
+     *@return java.lang.String  新闻列表Controller
+     */
     @RequestMapping(value = "/admin_news_image_select",method = RequestMethod.GET)
     public String selectImage(Integer id, String imageUrl) {
         News news = newsService.get(id);
@@ -57,6 +77,13 @@ public class NewsController {
         return "redirect:admin_news_list";
     }
 
+    /**
+     *delete
+     *<p>   删除指定id的新闻数据
+     *@param id 要删除的新闻的id
+     *@param model  是否删除成功的结果
+     *@return java.lang.String  删除新闻通知页面
+     */
     @RequestMapping(value = "/admin_news_delete",method = RequestMethod.GET)
     public String delete(Integer id,Model model) {
         newsService.delete(id);
@@ -71,6 +98,12 @@ public class NewsController {
         return "admin/deleteNews";
     }
 
+    /**
+     *edit
+     *<p>   编辑新闻数据
+     *@param news   编辑后的新闻数据
+     *@return java.lang.String  新闻列表Controller
+     */
     @RequestMapping(value = "/admin_news_edit",method = RequestMethod.POST)
     public String edit(News news) {
         newsService.update(news);

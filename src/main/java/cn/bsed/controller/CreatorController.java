@@ -24,6 +24,13 @@ public class CreatorController {
     @Autowired
     CreatorService creatorService;
 
+    /**
+     *listAll
+     *<p>   获取所有主创数据并跳转到主创管理页面
+     *@param page   分页对象
+     *@param model  所有主创数据及分页数据
+     *@return java.lang.String  主创管理页面
+     */
     @RequestMapping(value = "/admin_creator_list",method = RequestMethod.GET)
     public String listAll(Page page, Model model) {
         PageHelper.offsetPage(page.getStart(), page.getCount());
@@ -37,6 +44,12 @@ public class CreatorController {
         return "admin/listCreator";
     }
 
+    /**
+     *add
+     *<p>   添加一条主创数据
+     *@param creator    要添加的主创数据
+     *@return java.lang.String  主创列表Controller
+     */
     @RequestMapping(value = "/admin_creator_add",method = RequestMethod.POST)
     public String add(Creator creator) {
         creator.setCategoryId(9);
@@ -45,6 +58,13 @@ public class CreatorController {
         return "redirect:admin_creator_list";
     }
 
+    /**
+     *delete
+     *<p>   删除一条主创数据
+     *@param id 要删除的主创数据的id
+     *@param model  判断是否已经删除此数据的boolean结果
+     *@return java.lang.String  删除主创通知页面
+     */
     @RequestMapping(value = "/admin_creator_delete", method = RequestMethod.GET)
     public String delete(Integer id, Model model) {
         creatorService.delete(id);
@@ -59,13 +79,25 @@ public class CreatorController {
         return "admin/deleteCreator";
     }
 
+    /**
+     *edit
+     *<p>   编辑更改一条主创数据
+     *@param creator  编辑后的主创数据
+     *@return java.lang.String  主创列表Controller
+     */
     @RequestMapping(value = "/admin_creator_edit", method = RequestMethod.POST)
     public String edit(Creator creator) {
         creatorService.update(creator);
         return "redirect:admin_creator_list";
     }
 
-
+    /**
+     *selectImage
+     *<p>   选择或更改指定id的主创的图片
+     *@param id 要更改图片的主创的id
+     *@param imageUrl 要更改的图片的url
+     *@return java.lang.String  主创列表Controller
+     */
     @RequestMapping(value = "/admin_creator_image_select", method = RequestMethod.GET)
     public String selectImage(Integer id, String imageUrl) {
         Creator creator = creatorService.get(id);

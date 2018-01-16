@@ -89,6 +89,12 @@ public class ImageController {
         return "redirect:admin_image_list";
     }
 
+    /**
+     *delete
+     *<p>   删除指定id的图片
+     *@param id 要删除的图片的id
+     *@return java.lang.String  删除通知页面
+     */
     @RequestMapping(value = "/admin_image_delete",method = RequestMethod.GET)
     public String delete(Integer id) {
         imageService.delete(id);

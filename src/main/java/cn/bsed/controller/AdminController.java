@@ -74,7 +74,7 @@ public class AdminController {
      * <p>   新闻编辑页面
      *
      * @param id    被编辑的新闻的id
-     * @param model 被编辑的新闻
+     * @param model 被编辑的新闻条目的数据
      * @return 新闻编辑页面
      */
     @RequestMapping(value = "/admin_edit_news_page",method = RequestMethod.GET)
@@ -84,6 +84,13 @@ public class AdminController {
         return "admin/editNews";
     }
 
+    /**
+     *adminEditCreatorPage
+     *<p>   主创编辑页面
+     *@param id 被编辑的主创的id
+     *@param model 被编辑的主创条目数据
+     *@return java.lang.String  主创编辑页面
+     */
     @RequestMapping(value = "/admin_edit_creator_page",method = RequestMethod.GET)
     public String adminEditCreatorPage(Integer id, Model model) {
         Creator creator = creatorService.get(id);
@@ -91,6 +98,13 @@ public class AdminController {
         return "admin/editCreator";
     }
 
+    /**
+     *adminEditProfessionPage
+     *<p>   专家编辑页面
+     *@param id 被编辑的专家的id
+     *@param model 被编辑的专家条目数据
+     *@return java.lang.String  专家编辑页面
+     */
     @RequestMapping(value = "/admin_edit_profession_page",method = RequestMethod.GET)
     public String adminEditProfessionPage(Integer id, Model model) {
         Profession profession = professionService.get(id);
@@ -128,6 +142,13 @@ public class AdminController {
         return "admin/selectNewsImage";
     }
 
+    /**
+     *adminSelectCreatorImagePage
+     *<p>主创图片选择页面
+     *@param id 主创的id
+     *@param model  主创id与所有的image数据
+     *@return java.lang.String  主创图片选择页面
+     */
     @RequestMapping(value = "/admin_select_creator_image_page",method = RequestMethod.GET)
     public String adminSelectCreatorImagePage(Integer id, Model model) {
         List<Image> images = imageService.listAll();
@@ -135,6 +156,14 @@ public class AdminController {
         model.addAttribute("images", images);
         return "admin/selectCreatorImage";
     }
+
+    /**
+     *adminSelectProfessionImagePage
+     *<p>   专家图片选择页面
+     *@param id 专家的id
+     *@param model  传出的专家条目的id值与所有image数据
+     *@return java.lang.String  专家图片选择页面
+     */
     @RequestMapping(value = "/admin_select_profession_image_page",method = RequestMethod.GET)
     public String adminSelectProfessionImagePage(Integer id, Model model) {
         List<Image> images = imageService.listAll();

@@ -71,12 +71,26 @@ public class ForeController {
         return "fore/projects";
     }
 
+    /**
+     *listNews
+     *<p>   显示所有新闻数据
+     *@param model  新闻数据List
+     *@return java.lang.String  前台新闻列表页面
+     */
     @RequestMapping(value = "/list_news",method = RequestMethod.GET)
     public String listNews(Model model) {
         List<News> newsList = newsService.listAll();
         model.addAttribute("newsList", newsList);
         return "fore/news";
     }
+
+    /**
+     *listCreators
+     *<p>   显示所有主创数据及主创分类的数据
+     *@param categoryId 主创分类的id
+     *@param model 全部主创数据的List与主创对应的分类
+     *@return java.lang.String  前台主创列表页面
+     */
     @RequestMapping(value = "/list_creators",method = RequestMethod.GET)
     public String listCreators(Integer categoryId, Model model) {
         Category category = categoryService.get(categoryId);
@@ -86,6 +100,13 @@ public class ForeController {
         return "fore/creator";
     }
 
+    /**
+     *listProfession
+     *<p>   显示所有专家数据及专家分类的数据
+     *@param categoryId 专家分类的id
+     *@param model  全部专家数据的list与专家对应的分类
+     *@return java.lang.String  前台专家列表页面
+     */
     @RequestMapping(value = "/list_profession",method = RequestMethod.GET)
     public String listProfession(Integer categoryId, Model model) {
         Category category = categoryService.get(categoryId);
@@ -99,7 +120,7 @@ public class ForeController {
      * <p>   显示指定id的项目
      *
      * @param id    项目id
-     * @param model 项目信息
+     * @param model 项目的数据
      * @return 项目页面
      */
     @RequestMapping(value = "/show_project",method = RequestMethod.GET)
@@ -109,6 +130,13 @@ public class ForeController {
         return "fore/projectPage";
     }
 
+    /**
+     *showNews
+     *<p>   显示指定id的新闻数据
+     *@param id 新闻的id
+     *@param model 新闻的数据
+     *@return java.lang.String  新闻页面
+     */
     @RequestMapping(value = "/show_news",method = RequestMethod.GET)
     public String showNews(Integer id, Model model) {
         News news = newsService.get(id);
@@ -116,6 +144,13 @@ public class ForeController {
         return "fore/newsPage";
     }
 
+    /**
+     *showCreator
+     *<p>   显示指定id的主创数据
+     *@param id 主创的id
+     *@param model 主创的数据
+     *@return java.lang.String  主创页面
+     */
     @RequestMapping(value = "/show_creator",method = RequestMethod.GET)
     public String showCreator(Integer id, Model model) {
         Creator creator = creatorService.get(id);
@@ -123,6 +158,13 @@ public class ForeController {
         return "fore/creatorPage";
     }
 
+    /**
+     *showProfession
+     *<p>   显示指定id的专家数据
+     *@param id 专家的id
+     *@param model  专家的数据
+     *@return java.lang.String  专家页面
+     */
     @RequestMapping(value = "/show_profession",method = RequestMethod.GET)
     public String showProfession(Integer id, Model model) {
         Profession profession = professionService.get(id);

@@ -40,7 +40,7 @@
                     <button type="submit">修改项目</button>
                 </td>
                 <td colspan="2" align="center">
-                    <form method="post" action="admin_news_list">
+                    <form method="get" action="admin_news_list">
                         <button type="submit">撤销修改</button>
                     </form>
                 </td>
