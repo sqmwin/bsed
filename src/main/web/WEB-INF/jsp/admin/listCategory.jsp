@@ -10,12 +10,8 @@
 <html>
 <head>
     <title>分类管理</title>
-    <%--<script src="${pageContext.request.contextPath}/js/jquery/jquery-3.2.1.min.js"></script>--%>
-    <%--<script type="text/javascript">--%>
-        <%--var url = path + 'listCategory.jsp';--%>
-    <%--</script>--%>
 </head>
-<body>
+<body id="show">
 <div>
     <form action="${pageContext.request.contextPath}/admin_home">
         <button type="submit">返回上一级</button>
@@ -47,7 +43,8 @@
             </tr>
         </c:forEach>
         </tbody>
-        <form method="post" action="${pageContext.request.contextPath}/admin_category_add">
+        <%--<form id="add_category" method="post" action="${pageContext.request.contextPath}/admin_category_add">--%>
+        <form id="add_category">
         <tfoot>
             <tr>
                 <td>新增分类</td>
@@ -73,7 +70,7 @@
                     <textarea name="description" id="description" cols="50" rows="10"></textarea>
                 </td>
                 <td colspan="2" align="center">
-                    <button type="submit">新增分类</button>
+                    <button type="submit" id="submit">新增分类</button>
                 </td>
             </tr>
         </tfoot>
@@ -81,4 +78,26 @@
     </table>
 </div>
 </body>
+<script src="${pageContext.request.contextPath}/js/jquery/jquery-3.2.1.min.js"></script>
+<%--<script type="text/javascript">--%>
+<%--var url = path + 'listCategory.jsp';--%>
+<%--</script>--%>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#add_category").submit(function () {
+            $.ajax({
+                url: "${pageContext.request.contextPath}/admin_category_add",
+                data: $("#add_category").serialize(),
+                type: "post",
+                success: function () {
+                    window.location.reload();
+                },
+                error: function () {
+                    alert("error:" + $("#name").val() + data.responseText);
+                }
+            });
+            return false;
+        });
+    });
+</script>
 </html>

@@ -2,11 +2,13 @@ package cn.bsed.controller;
 
 import cn.bsed.pojo.Category;
 import cn.bsed.service.CategoryService;
+import com.alibaba.fastjson.JSON;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
@@ -30,15 +32,10 @@ public class CategoryController {
      * @return 分类页面
      */
     @RequestMapping(value = "/admin_category_list",method = RequestMethod.GET)
-    //@ResponseBody
-    public String list(HttpServletResponse response,Model model) {
+    public String list(Model model) {
         List<Category> categories = categoryService.listAll();
-        //Map<String, Object> map = new HashMap<>(1);
-        //map.put("categories", categories);
-        response.setCharacterEncoding("utf-8");
         model.addAttribute("categories", categories);
         return "admin/listCategory";
-        //return JSON.toJSONString(map);
     }
 
     /**
@@ -49,8 +46,12 @@ public class CategoryController {
      */
     @RequestMapping(value = "/admin_category_add",method = RequestMethod.POST)
     public String add(Category category) {
-        categoryService.add(category);
-        return "redirect:admin_category_list";
+        String nothing = "";
+        //判断分类名称是否为空
+        if (!nothing.equals(category.getName())) {
+            categoryService.add(category);
+        }
+        return "redirect:/admin_category_list";
     }
 
     /**
@@ -62,7 +63,7 @@ public class CategoryController {
     @RequestMapping(value = "/admin_category_edit",method = RequestMethod.POST)
     public String edit(Category category) {
         categoryService.update(category);
-        return "redirect:admin_category_list";
+        return "redirect:/admin_category_list";
     }
 
     /**
@@ -84,5 +85,19 @@ public class CategoryController {
             }
         }
         return "admin/deleteCategory";
+    }
+
+    /**
+     * <p>   以json字符串形式显示所有分类
+     *
+     * @param response 服务器响应
+     * @return category所有数据的json字符串
+     */
+    @RequestMapping(value = "/admin_category_list_with_json",method = RequestMethod.GET)
+    @ResponseBody
+    public String listWithJson(HttpServletResponse response) {
+        List<Category> categories = categoryService.listAll();
+        response.setCharacterEncoding("utf-8");
+        return JSON.toJSONString(categories);
     }
 }

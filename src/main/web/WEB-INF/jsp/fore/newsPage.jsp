@@ -21,16 +21,14 @@
         <thead>
         <tr>
             <th>新闻标题</th>
-            <th>创建时间</th>
+            <th>新闻时间</th>
             <th>新闻静态页面url</th>
         </tr>
         </thead>
         <tbody>
         <tr>
             <td>${news.title}</td>
-            <td>
-                <fmt:formatDate value="${news.createDate}" pattern="yyyy-MM-dd"/>
-            </td>
+            <td><fmt:formatDate value="${news.createDate}" pattern="yyyy-MM-dd"/></td>
             <td>${news.newsPageUrl}</td>
         </tr>
         </tbody>

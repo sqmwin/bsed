@@ -46,13 +46,13 @@ public class ProfessionController {
         profession.setCategoryId(10);
         profession.setCategoryType("type_other");
         professionService.add(profession);
-        return "redirect:admin_profession_list";
+        return "redirect:/admin_profession_list";
     }
 
     @RequestMapping(value = "/admin_profession_edit", method = RequestMethod.POST)
     public String edit(Profession profession) {
         professionService.update(profession);
-        return "redirect:admin_profession_list";
+        return "redirect:/admin_profession_list";
     }
 
     @RequestMapping(value = "/admin_profession_delete", method = RequestMethod.GET)
@@ -74,7 +74,7 @@ public class ProfessionController {
         Profession profession = professionService.get(id);
         profession.setImageUrl(imageUrl);
         professionService.update(profession);
-        return "redirect:admin_profession_list";
+        return "redirect:/admin_profession_list";
     }
 
 }

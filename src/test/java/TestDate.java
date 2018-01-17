@@ -3,15 +3,16 @@ import cn.bsed.pojo.Project;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import javax.annotation.Resource;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * <p>
@@ -52,6 +53,17 @@ public class TestDate {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+    }
+
+    @Test
+    public void testList() {
+        List<List<String>> fatherList = new LinkedList<>();
+        List<String> childList = new ArrayList<>();
+        childList.add("before add child list");
+        fatherList.add(childList);
+        System.out.println(fatherList);
+        childList.add("after add child list");
+        System.out.println(fatherList);
 
     }
 }

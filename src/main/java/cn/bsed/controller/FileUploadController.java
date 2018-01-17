@@ -74,7 +74,7 @@ public class FileUploadController {
                 saveFile(file);
         }
         // 重定向
-        return "redirect:result";
+        return "redirect:/result";
     }
 
 

@@ -68,7 +68,7 @@
         <li><a href="${pageContext.request.contextPath}/list_projects_by_category_type?categoryType=type_garden">苗圃种植</a></li>
         <li class="navbar"><a href="#">关于蓝海</a>
             <ul>
-                <li><a href="${pageContext.request.contextPath}/philosophy">${c[5].name}</a></li>
+                <li><a href="${pageContext.request.contextPath}/idea">${c[5].name}</a></li>
                 <li><a href="${pageContext.request.contextPath}/list_news">${c[6].name}</a></li>
                 <li><a href="${pageContext.request.contextPath}/honor">${c[7].name}</a></li>
                 <li><a href="${pageContext.request.contextPath}/list_creators?categoryId=9">${c[8].name}</a></li>

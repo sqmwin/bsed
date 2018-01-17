@@ -47,16 +47,16 @@
 
     <!-- 配置MultipartResolver 用于文件上传 使用spring的CommosMultipartResolver -->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
-          p:defaultEncoding="UTF-8" p:maxUploadSize="2000000" p:uploadTempDir="img"/>
+          p:defaultEncoding="UTF-8"/>
 
     <!-- SpringMVC在超出上传文件限制时，会抛出org.springframework.web.multipart.MaxUploadSizeExceededException -->
     <!-- 该异常是SpringMVC在检查上传的文件信息时抛出来的，而且此时还没有进入到Controller方法中 -->
-    <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
-        <property name="exceptionMappings">
-            <props>
+    <!--<bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">-->
+        <!--<property name="exceptionMappings">-->
+            <!--<props>-->
                 <!-- 遇到MaxUploadSizeExceededException异常时，自动跳转到/WEB-INF/jsp/error/errorFileUpload.jsp页面 -->
-                <prop key="org.springframework.web.multipart.MaxUploadSizeExceededException">error/errorFileUpload</prop>
-            </props>
-        </property>
-    </bean>
+                <!--<prop key="org.springframework.web.multipart.MaxUploadSizeExceededException">error/errorFileUpload</prop>-->
+            <!--</props>-->
+        <!--</property>-->
+    <!--</bean>-->
 </beans>

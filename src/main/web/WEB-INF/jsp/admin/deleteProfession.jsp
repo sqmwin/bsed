@@ -10,9 +10,9 @@
 <html>
 <head>
     <title>删除新闻通知页面</title>
-    <meta http-equiv="refresh" content ="5;url=${pageContext.request.contextPath}/admin_profession_list">
+    <meta http-equiv="refresh" content ="2;url=${pageContext.request.contextPath}/admin_profession_list">
     <script type="text/javascript">
-        var i = 6;
+        var i = 3;
         function shownum(){
             i=i-1;
             document.getElementById("time").innerHTML=i+"秒后自动跳转到专家管理界面";

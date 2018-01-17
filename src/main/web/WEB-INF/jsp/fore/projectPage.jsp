@@ -32,7 +32,6 @@
             <th>占地面积</th>
             <th>设计时间</th>
             <th>项目页面url</th>
-            <th>项目图片url</th>
         </tr>
         </thead>
         <tbody>
@@ -53,7 +52,6 @@
                     <fmt:formatDate value="${project.time}" pattern="yyyy"/>
                 </td>
                 <td>${project.projectPageUrl}</td>
-                <td>${project.imageUrl}</td>
             </tr>
         </tbody>
     </table>

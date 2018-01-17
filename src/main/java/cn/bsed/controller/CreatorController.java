@@ -52,10 +52,13 @@ public class CreatorController {
      */
     @RequestMapping(value = "/admin_creator_add",method = RequestMethod.POST)
     public String add(Creator creator) {
-        creator.setCategoryId(9);
-        creator.setCategoryType("type_other");
-        creatorService.add(creator);
-        return "redirect:admin_creator_list";
+        String empty = "";
+        if (!empty.equals(creator.getName())) {
+            creator.setCategoryId(9);
+            creator.setCategoryType("type_other");
+            creatorService.add(creator);
+        }
+        return "redirect:/admin_creator_list";
     }
 
     /**
@@ -88,7 +91,7 @@ public class CreatorController {
     @RequestMapping(value = "/admin_creator_edit", method = RequestMethod.POST)
     public String edit(Creator creator) {
         creatorService.update(creator);
-        return "redirect:admin_creator_list";
+        return "redirect:/admin_creator_list";
     }
 
     /**
@@ -103,6 +106,6 @@ public class CreatorController {
         Creator creator = creatorService.get(id);
         creator.setImageUrl(imageUrl);
         creatorService.update(creator);
-        return "redirect:admin_creator_list";
+        return "redirect:/admin_creator_list";
     }
 }

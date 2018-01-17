@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<script src="${pageContext.request.contextPath}/js/jquery/jquery-3.2.1.min.js"></script>
 <html>
 <head>
     <title>后台管理主页</title>
@@ -43,6 +44,61 @@
 <div>
     <a href="${pageContext.request.contextPath}/admin_image_list">图库管理</a>
 </div>
+<button id="admin_category_list" type="button" onclick="admin()">获取category_json</button>
+
+
+<div id="content">
+
+</div>
 
 </body>
+<script type="text/javascript">
+    var jsonObj = null;
+
+    var content = document.getElementById("content");
+
+    function admin() {
+
+        var xmlHttpRequest = null;
+
+        if(window.XMLHttpRequest){
+            xmlHttpRequest = new XMLHttpRequest();
+        } else if (window.ActiveXObject){
+            xmlHttpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        xmlHttpRequest.onreadystatechange = function callBack() {
+            if (xmlHttpRequest.readyState === 4 && xmlHttpRequest.status === 200) {
+                // jsonString = eval("(" + xmlHttpRequest.responseText + ")");
+                jsonObj = JSON.parse(xmlHttpRequest.responseText);
+
+                // $(jsonObj).each(function () {
+                //     var category = "id:" + this.id ;
+                //     var innerDiv = document.createElement("div");
+                //     innerDiv.innerHTML = category;
+                //     content.appendChild(innerDiv);
+                // })
+
+                // for (var key in jsonObj) {
+                //     console.log(key);
+                //     console.log(jsonObj(key));
+                // }
+
+                // for(var i = 0; i< jsonObj.length; i++) {
+                //     var category = jsonObj[i];
+                //     var innerDiv = document.createElement("div");
+                //     innerDiv.innerHTML = category;
+                //     content.appendChild(innerDiv);
+                // }
+
+                content.innerHTML = jsonObj;
+            }
+        };
+
+        xmlHttpRequest.open("GET", "${pageContext.request.contextPath}/admin_category_list_with_json");
+
+        xmlHttpRequest.send(null);
+    }
+
+</script>
 </html>

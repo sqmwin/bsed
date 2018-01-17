@@ -54,12 +54,15 @@ public class NewsController {
      */
     @RequestMapping(value = "/admin_news_add",method = RequestMethod.POST)
     public String add(News news) {
-        news.setCategoryId(7);
-        news.setCategoryType("type_other");
-        Date date = new Date();
-        news.setCreateDate(date);
-        newsService.add(news);
-        return "redirect:admin_news_list";
+        String empty = "";
+        if (!empty.equals(news.getTitle())) {
+            news.setCategoryId(7);
+            news.setCategoryType("type_other");
+            Date date = new Date();
+            news.setCreateDate(date);
+            newsService.add(news);
+        }
+        return "redirect:/admin_news_list";
     }
 
     /**
@@ -74,7 +77,7 @@ public class NewsController {
         News news = newsService.get(id);
         news.setImageUrl(imageUrl);
         newsService.update(news);
-        return "redirect:admin_news_list";
+        return "redirect:/admin_news_list";
     }
 
     /**
@@ -107,6 +110,6 @@ public class NewsController {
     @RequestMapping(value = "/admin_news_edit",method = RequestMethod.POST)
     public String edit(News news) {
         newsService.update(news);
-        return "redirect:admin_news_list";
+        return "redirect:/admin_news_list";
     }
 }
