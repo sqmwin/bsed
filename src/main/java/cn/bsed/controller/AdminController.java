@@ -32,14 +32,25 @@ public class AdminController {
     @Autowired
     ProfessionService professionService;
 
+    // /**
+    //  * <p>   后台管理主页
+    //  *
+    //  * @return 后台管理主页
+    //  */
+    // @RequestMapping(value = "/admin_home",method = RequestMethod.GET)
+    // public String adminHomePage(String nickname,Model model) {
+    //     model.addAttribute("nickname", nickname);
+    //     return "admin/home";
+    // }
+
     /**
-     * <p>   后台管理主页
+     * <p>   后台管理登陆页
      *
-     * @return 后台管理主页
+     * @return 后台管理登陆页
      */
-    @RequestMapping(value = "/admin_home",method = RequestMethod.GET)
-    public String adminHomePage() {
-        return "admin/home";
+    @RequestMapping(value = "/admin_login_page", method = RequestMethod.GET)
+    public String loginPage() {
+        return "admin/loginPage";
     }
 
     /**
@@ -49,8 +60,9 @@ public class AdminController {
      * @param model 被编辑的分类
      * @return 分类编辑页面
      */
-    @RequestMapping(value = "/admin_edit_category_page",method = RequestMethod.GET)
+    @RequestMapping(value = "/admin_edit_category_page", method = RequestMethod.GET)
     public String adminEditCategoryPage(Integer id, Model model) {
+
         Category category = categoryService.get(id);
         model.addAttribute("category", category);
         return "admin/editCategory";

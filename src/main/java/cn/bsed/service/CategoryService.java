@@ -12,10 +12,6 @@ import java.util.List;
  */
 public interface CategoryService {
 
-    String TYPE_LANDSCAPE = "type_landscape";
-    String TYPE_TOURISM = "type_tourism";
-    String TYPE_OTHER = "type_other";
-
     void add(Category category);
 
     void delete(int id);

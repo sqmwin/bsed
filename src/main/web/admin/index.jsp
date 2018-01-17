@@ -6,5 +6,5 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%
-    response.sendRedirect("../admin_home");
+    response.sendRedirect("../admin_login_page");
 %>

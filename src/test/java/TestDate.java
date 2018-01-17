@@ -1,5 +1,6 @@
 import cn.bsed.mapper.ProjectMapper;
 import cn.bsed.pojo.Project;
+import cn.bsed.util.security.MD5Util;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,5 +66,12 @@ public class TestDate {
         childList.add("after add child list");
         System.out.println(fatherList);
 
+    }
+
+    @Test
+    public void testHashCode() {
+        String password = "admin";
+        String md5code = MD5Util.getMD5(password);
+        System.out.println(md5code);
     }
 }

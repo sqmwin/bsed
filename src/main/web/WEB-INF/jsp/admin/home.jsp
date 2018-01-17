@@ -13,7 +13,7 @@
 </head>
 <body>
 <div>
-    <a href="${pageContext.request.contextPath}/forehome">返回主页</a>
+欢迎${pageContext.session.getAttribute("user").nickname}
 </div>
 <%--分类--%>
 <div>
@@ -44,12 +44,24 @@
 <div>
     <a href="${pageContext.request.contextPath}/admin_image_list">图库管理</a>
 </div>
-<button id="admin_category_list" type="button" onclick="admin()">获取category_json</button>
+
+<%--修改密码--%>
+<div>
+    ${pageContext.request.getAttribute("message")}
+</div>
+<div>
+    <a href="${pageContext.request.contextPath}/admin_user_edit_page">修改密码</a>
+</div>
 
 
 <div id="content">
 
+
 </div>
+
+
+<button id="admin_category_list" type="button" onclick="admin()">获取category_json</button>
+
 
 </body>
 <script type="text/javascript">

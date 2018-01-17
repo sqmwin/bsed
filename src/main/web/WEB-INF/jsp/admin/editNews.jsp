@@ -30,7 +30,7 @@
                 <td>${n.id}<input type="hidden" id="id" name="id" value="${n.id}"></td>
                 <td><input type="text" id="title" name="title" value="${n.title}"></td>
                 <td>
-                    <fmt:formatDate value="${p.createDate}" pattern="yyyy-MM-dd"/>
+                    <fmt:formatDate value="${n.createDate}" pattern="yyyy-MM-dd"/>
                 </td>
                 <td><input type="text" id="newsPageUrl" name="newsPageUrl" value="${n.newsPageUrl}"></td>
             </tr>
