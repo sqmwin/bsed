@@ -32,7 +32,7 @@
 <c:set var="p" value="${project}"/>
 <div>编辑项目</div>
 <div>
-    <form method="post" action="${pageContext.request.contextPath}/admin_project_edit">
+    <form method="post" action="${pageContext.request.contextPath}/admin/admin_project_edit">
         <table>
             <tr>
                 <td>项目id</td>
@@ -100,7 +100,7 @@
                     <button type="submit">修改项目</button>
                 </td>
                 <td colspan="2" align="center">
-                    <form method="get" action="admin_project_list">
+                    <form method="get" action="${pageContext.request.contextPath}/admin/admin_project_list">
                     <button type="submit">撤销修改</button>
                     </form>
                 </td>

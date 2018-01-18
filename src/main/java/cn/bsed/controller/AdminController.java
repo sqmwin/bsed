@@ -17,7 +17,7 @@ import java.util.List;
  * @version 1.0
  */
 @Controller
-@RequestMapping("")
+@RequestMapping("/admin")
 public class AdminController {
     @Autowired
     CategoryService categoryService;
@@ -43,15 +43,6 @@ public class AdminController {
     //     return "admin/home";
     // }
 
-    /**
-     * <p>   后台管理登陆页
-     *
-     * @return 后台管理登陆页
-     */
-    @RequestMapping(value = "/admin_login_page", method = RequestMethod.GET)
-    public String loginPage() {
-        return "admin/loginPage";
-    }
 
     /**
      * <p>   分类编辑页面
@@ -62,7 +53,6 @@ public class AdminController {
      */
     @RequestMapping(value = "/admin_edit_category_page", method = RequestMethod.GET)
     public String adminEditCategoryPage(Integer id, Model model) {
-
         Category category = categoryService.get(id);
         model.addAttribute("category", category);
         return "admin/editCategory";

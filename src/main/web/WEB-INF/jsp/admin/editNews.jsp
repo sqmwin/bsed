@@ -18,7 +18,7 @@
 <c:set var="n" value="${news}"/>
 <div>编辑项目</div>
 <div>
-    <form method="post" action="${pageContext.request.contextPath}/admin_news_edit">
+    <form method="post" action="${pageContext.request.contextPath}/admin/admin_news_edit">
         <table>
             <tr>
                 <td>新闻id</td>
@@ -40,7 +40,7 @@
                     <button type="submit">修改项目</button>
                 </td>
                 <td colspan="2" align="center">
-                    <form method="get" action="admin_news_list">
+                    <form method="get" action="${pageContext.request.contextPath}/admin/admin_news_list">
                         <button type="submit">撤销修改</button>
                     </form>
                 </td>

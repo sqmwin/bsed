@@ -10,7 +10,7 @@
 <html>
 <head>
     <title>删除新闻通知页面</title>
-    <meta http-equiv="refresh" content ="2;url=${pageContext.request.contextPath}/admin_creator_list">
+    <meta http-equiv="refresh" content ="2;url=${pageContext.request.contextPath}/admin/admin_creator_list">
     <script type="text/javascript">
         var i = 3;
         function shownum(){

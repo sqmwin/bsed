@@ -33,19 +33,19 @@
                 <td>${p.jobTitle}</td>
                 <td>${p.description}</td>
                 <td>
-                    <a href="admin_select_profession_image_page?id=${p.id}">
+                    <a href="${pageContext.request.contextPath}/admin/admin_select_profession_image_page?id=${p.id}">
                         <img src="${pageContext.request.contextPath}/${p.imageUrl}" alt="${p.imageUrl}" width="150" height="200">更改图片</a>
                 </td>
                 <td>
-                    <a href="${pageContext.request.contextPath}/admin_edit_profession_page?id=${p.id}">编辑新闻</a>
+                    <a href="${pageContext.request.contextPath}/admin/admin_edit_profession_page?id=${p.id}">编辑新闻</a>
                 </td>
                 <td>
-                    <a href="${pageContext.request.contextPath}/admin_profession_delete?id=${p.id}">删除新闻</a>
+                    <a href="${pageContext.request.contextPath}/admin/admin_profession_delete?id=${p.id}">删除新闻</a>
                 </td>
             </tr>
         </c:forEach>
         </tbody>
-        <form method="post" action="${pageContext.request.contextPath}/admin_profession_add">
+        <form method="post" action="${pageContext.request.contextPath}/admin/admin_profession_add">
             <tfoot>
             <tr>
                 <td>新增主创</td>

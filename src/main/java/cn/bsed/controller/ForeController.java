@@ -31,6 +31,16 @@ public class ForeController {
     ProfessionService professionService;
 
     /**
+     * <p>   后台管理登陆页
+     *
+     * @return 后台管理登陆页
+     */
+    @RequestMapping(value = "/admin_login_page", method = RequestMethod.GET)
+    public String loginPage() {
+        return "admin/loginPage";
+    }
+
+    /**
      * <p>   显示所有的分类
      *
      * @param model 分类列表

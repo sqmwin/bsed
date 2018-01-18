@@ -33,10 +33,10 @@
                 <td>${c.type}</td>
                 <td>${c.description}</td>
                 <td>
-                    <a href="${pageContext.request.contextPath}/admin_edit_category_page?id=${c.id}">编辑分类</a>
+                    <a href="${pageContext.request.contextPath}/admin/admin_edit_category_page?id=${c.id}">编辑分类</a>
                 </td>
                 <td>
-                    <a href="${pageContext.request.contextPath}/admin_category_delete?id=${c.id}">删除分类</a>
+                    <a href="${pageContext.request.contextPath}/admin/admin_category_delete?id=${c.id}">删除分类</a>
                 </td>
             </tr>
         </c:forEach>
@@ -84,7 +84,7 @@
     $(document).ready(function () {
         $("#add_category").submit(function () {
             $.ajax({
-                url: "${pageContext.request.contextPath}/admin_category_add",
+                url: "${pageContext.request.contextPath}/admin/admin_category_add",
                 data: $("#add_category").serialize(),
                 type: "post",
                 success: function () {

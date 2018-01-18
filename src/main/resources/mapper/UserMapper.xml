@@ -23,16 +23,16 @@
     </update>
 
     <select id="selectByPrimaryKey" parameterType="cn.bsed.pojo.User" resultMap="BaseResultMap">
-        SELECT (id,username,password,nickname) FROM user
+        SELECT id,username,password,nickname FROM user
         WHERE id = #{id}
     </select>
 
     <select id="selectByUsername" parameterType="cn.bsed.pojo.User" resultMap="BaseResultMap">
-        SELECT * FROM user
+        SELECT id,username,password,nickname FROM user
         WHERE username = #{username}
     </select>
 
     <select id="selectAll" parameterType="cn.bsed.pojo.User" resultMap="BaseResultMap">
-        SELECT * FROM user
+        SELECT id,username,password,nickname FROM user
     </select>
 </mapper>

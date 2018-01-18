@@ -1,5 +1,8 @@
 import cn.bsed.mapper.ProjectMapper;
+import cn.bsed.mapper.UserMapper;
 import cn.bsed.pojo.Project;
+import cn.bsed.pojo.User;
+import cn.bsed.service.UserService;
 import cn.bsed.util.security.MD5Util;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -26,6 +29,10 @@ import java.util.List;
 public class TestDate {
     @Autowired
     ProjectMapper projectMapper;
+    @Autowired
+    UserService userService;
+    @Autowired
+    UserMapper userMapper;
 
     @Test
     public void testDate() {
@@ -73,5 +80,15 @@ public class TestDate {
         String password = "admin";
         String md5code = MD5Util.getMD5(password);
         System.out.println(md5code);
+    }
+
+    @Test
+    public void testUser() {
+        User user1 = userService.get(1);
+        System.out.println(user1);
+        User user2 = userService.getByUsername("admin");
+        System.out.println(user2);
+        List<User> users = userMapper.selectAll();
+        System.out.println(users);
     }
 }

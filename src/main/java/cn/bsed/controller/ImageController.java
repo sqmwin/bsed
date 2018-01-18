@@ -25,7 +25,7 @@ import java.util.List;
  * @since 2018/1/11
  */
 @Controller
-@RequestMapping("")
+@RequestMapping("/admin")
 public class ImageController {
     @Autowired
     ImageService imageService;
@@ -92,7 +92,7 @@ public class ImageController {
                 }
             }
         }
-        return "redirect:/admin_image_list";
+        return "redirect:/admin/admin_image_list";
     }
 
     /**

@@ -18,7 +18,7 @@
 <c:set var="c" value="${creator}"/>
 <div>编辑主创</div>
 <div>
-    <form method="post" action="${pageContext.request.contextPath}/admin_creator_edit">
+    <form method="post" action="${pageContext.request.contextPath}/admin/admin_creator_edit">
         <table>
             <tr>
                 <td>主创id</td>
@@ -37,7 +37,7 @@
                     <button type="submit">修改主创</button>
                 </td>
                 <td colspan="2" align="center">
-                    <form method="get" action="admin_creator_list">
+                    <form method="get" action="${pageContext}/admin/admin_creator_list">
                         <button type="submit">撤销修改</button>
                     </form>
                 </td>

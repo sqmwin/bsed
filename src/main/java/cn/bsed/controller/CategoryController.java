@@ -20,7 +20,7 @@ import java.util.List;
  * @version 1.0
  */
 @Controller
-@RequestMapping("")
+@RequestMapping("/admin")
 public class CategoryController {
     @Autowired
     CategoryService categoryService;
@@ -51,7 +51,7 @@ public class CategoryController {
         if (!nothing.equals(category.getName())) {
             categoryService.add(category);
         }
-        return "redirect:/admin_category_list";
+        return "redirect:/admin/admin_category_list";
     }
 
     /**
@@ -63,7 +63,7 @@ public class CategoryController {
     @RequestMapping(value = "/admin_category_edit",method = RequestMethod.POST)
     public String edit(Category category) {
         categoryService.update(category);
-        return "redirect:/admin_category_list";
+        return "redirect:/admin/admin_category_list";
     }
 
     /**

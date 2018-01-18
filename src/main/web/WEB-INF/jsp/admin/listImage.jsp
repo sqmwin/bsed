@@ -38,7 +38,7 @@
         xmlHttpRequest.send(form);
 
         $.ajax({
-            url:"${pageContext.request.contextPath}/admin_image_add_with_json",
+            url:"${pageContext.request.contextPath}/admin/admin_image_add_with_json",
             type:"post",
             data:form,
             professData: false,
@@ -72,7 +72,7 @@
         </tr>
         </thead>
     </form>
-    <form method="post" action="admin_image_add" enctype="multipart/form-data">
+    <form method="post" action="${pageContext.request.contextPath}admin/admin_image_add" enctype="multipart/form-data">
         <thead>
         <tr>
             <th>新增图片</th>
@@ -94,7 +94,7 @@
         <c:forEach items="${images}" var="i">
             <tr>
                 <th><img src="${pageContext.request.contextPath}/${i.url}" alt="${i.url}" width="300" height="200"></th>
-                <th><a href="admin_image_delete?id=${i.id}">删除图片</a></th>
+                <th><a href="${pageContext.request.contextPath}/admin/admin_image_delete?id=${i.id}">删除图片</a></th>
             </tr>
         </c:forEach>
     </tbody>

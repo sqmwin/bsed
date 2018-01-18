@@ -15,9 +15,9 @@
     <a href="${pageContext.request.contextPath}/forehome">返回上一页</a>
 </div>
 <div>
-    ${pageContext.request.getAttribute("message")}
+    ${message}
 </div>
-<form method="post" action="${pageContext.request.contextPath}/admin_user_login">
+<form method="post" action="${pageContext.request.contextPath}/admin/admin_user_login/">
     <table>
         <tr>
             <td>用户名：</td>

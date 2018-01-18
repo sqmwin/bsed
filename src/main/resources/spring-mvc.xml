@@ -59,4 +59,24 @@
             <!--</props>-->
         <!--</property>-->
     <!--</bean>-->
+
+    <!--权限拦截器-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/admin/*"/>
+            <bean class="cn.bsed.interceptor.PermissionInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+    <!--异常解析器-->
+    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="exceptionMappings">
+            <props>
+                <prop key="cn.bsed.exception.WrongInputException">/error/wrongInputException</prop>
+                <prop key="cn.bsed.exception.CorrectInputException">/error/correctInputException</prop>
+            </props>
+        </property>
+        <property name="defaultErrorView" value="/error/defaultError"/>
+        <property name="exceptionAttribute" value="ex"/>
+    </bean>
 </beans>

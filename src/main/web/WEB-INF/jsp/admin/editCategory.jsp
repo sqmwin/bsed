@@ -14,7 +14,7 @@
 <body>
 <div>编辑分类</div>
 <div>
-    <form method="post" action="${pageContext.request.contextPath}/admin_category_edit">
+    <form method="post" action="${pageContext.request.contextPath}/admin/admin_category_edit">
         <table>
             <tr>
                 <td>分类名称</td>
@@ -59,7 +59,7 @@
                     <button type="submit">修改分类</button>
                 </td>
                 <td colspan="2" align="center">
-                    <form method="get" action="admin_category_list">
+                    <form method="get" action="${pageContext.request.contextPath}/admin/admin_category_list">
                         <button type="submit">撤销修改</button>
                     </form>
                 </td>

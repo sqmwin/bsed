@@ -33,19 +33,19 @@
                 <td>${n.title}</td>
                 <td>${n.newsPageUrl}</td>
                 <td>
-                    <a href="admin_select_news_image_page?id=${n.id}">
+                    <a href="${pageContext.request.contextPath}/admin/admin_select_news_image_page?id=${n.id}">
                         <img src="${pageContext.request.contextPath}/${n.imageUrl}" alt="${n.imageUrl}" width="300" height="200">更改图片</a>
                 </td>
                 <td>
-                    <a href="${pageContext.request.contextPath}/admin_edit_news_page?id=${n.id}">编辑新闻</a>
+                    <a href="${pageContext.request.contextPath}/admin/admin_edit_news_page?id=${n.id}">编辑新闻</a>
                 </td>
                 <td>
-                    <a href="${pageContext.request.contextPath}/admin_news_delete?id=${n.id}">删除新闻</a>
+                    <a href="${pageContext.request.contextPath}/admin/admin_news_delete?id=${n.id}">删除新闻</a>
                 </td>
             </tr>
         </c:forEach>
         </tbody>
-        <form method="post" action="${pageContext.request.contextPath}/admin_news_add">
+        <form method="post" action="${pageContext.request.contextPath}/admin/admin_news_add">
             <tfoot>
             <tr>
                 <td>新增新闻</td>

@@ -18,7 +18,7 @@ import java.io.File;
  * @since 2018/1/11
  */
 @Controller
-@RequestMapping("")
+@RequestMapping("/admin")
 public class FileUploadController {
     /**
      *<p>通过Spring的autowired注解获取spring默认配置的request

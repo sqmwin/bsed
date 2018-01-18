@@ -80,6 +80,7 @@
         <li><a href="${pageContext.request.contextPath}/follow">关注蓝海</a></li>
         <li><a href="${pageContext.request.contextPath}/admin_login_page">后台管理</a></li>
         <li><a href="${pageContext.request.contextPath}/test/uploadPage.jsp">upload</a></li>
+        <li><a href="${pageContext.request.contextPath}/test/exception_test_page">exception</a></li>
     </ul>
 </div>
 </body>

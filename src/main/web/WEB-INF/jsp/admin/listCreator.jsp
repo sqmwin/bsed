@@ -34,19 +34,19 @@
                 <td>${c.jobTitle}</td>
                 <td>${c.description}</td>
                 <td>
-                    <a href="admin_select_creator_image_page?id=${c.id}">
+                    <a href="${pageContext.request.contextPath}/admin/admin_select_creator_image_page?id=${c.id}">
                         <img src="${pageContext.request.contextPath}/${c.imageUrl}" alt="${c.imageUrl}" width="150" height="200">更改图片</a>
                 </td>
                 <td>
-                    <a href="${pageContext.request.contextPath}/admin_edit_creator_page?id=${c.id}">编辑新闻</a>
+                    <a href="${pageContext.request.contextPath}/admin/admin_edit_creator_page?id=${c.id}">编辑新闻</a>
                 </td>
                 <td>
-                    <a href="${pageContext.request.contextPath}/admin_creator_delete?id=${c.id}">删除新闻</a>
+                    <a href="${pageContext.request.contextPath}/admin/admin_creator_delete?id=${c.id}">删除新闻</a>
                 </td>
             </tr>
         </c:forEach>
         </tbody>
-        <form method="post" action="${pageContext.request.contextPath}/admin_creator_add">
+        <form method="post" action="${pageContext.request.contextPath}/admin/admin_creator_add">
             <tfoot>
             <tr>
                 <td>新增主创</td>

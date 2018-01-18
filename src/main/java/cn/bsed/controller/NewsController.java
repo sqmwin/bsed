@@ -20,7 +20,7 @@ import java.util.List;
  * @version: 1.0
  */
 @Controller
-@RequestMapping("")
+@RequestMapping("/admin")
 public class NewsController {
     @Autowired
     NewsService newsService;
@@ -62,7 +62,7 @@ public class NewsController {
             news.setCreateDate(date);
             newsService.add(news);
         }
-        return "redirect:/admin_news_list";
+        return "redirect:/admin/admin_news_list";
     }
 
     /**
@@ -77,7 +77,7 @@ public class NewsController {
         News news = newsService.get(id);
         news.setImageUrl(imageUrl);
         newsService.update(news);
-        return "redirect:/admin_news_list";
+        return "redirect:/admin/admin_news_list";
     }
 
     /**
@@ -110,6 +110,6 @@ public class NewsController {
     @RequestMapping(value = "/admin_news_edit",method = RequestMethod.POST)
     public String edit(News news) {
         newsService.update(news);
-        return "redirect:/admin_news_list";
+        return "redirect:/admin/admin_news_list";
     }
 }

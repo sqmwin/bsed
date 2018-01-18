@@ -10,7 +10,7 @@
 <html>
 <head>
     <title>删除分类通知页面</title>
-    <meta http-equiv="refresh" content ="2;url=${pageContext.request.contextPath}/admin_category_list">
+    <meta http-equiv="refresh" content ="2;url=${pageContext.request.contextPath}/admin/admin_category_list">
     <script type="text/javascript">
         var i = 3;
         function shownum(){

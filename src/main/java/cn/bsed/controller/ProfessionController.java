@@ -20,7 +20,7 @@ import java.util.List;
  * @version: 1.0
  */
 @Controller
-@RequestMapping("")
+@RequestMapping("/admin")
 public class ProfessionController {
     @Autowired
     ProfessionService professionService;
@@ -52,7 +52,7 @@ public class ProfessionController {
     @RequestMapping(value = "/admin_profession_edit", method = RequestMethod.POST)
     public String edit(Profession profession) {
         professionService.update(profession);
-        return "redirect:/admin_profession_list";
+        return "redirect:/admin/admin_profession_list";
     }
 
     @RequestMapping(value = "/admin_profession_delete", method = RequestMethod.GET)
@@ -74,7 +74,7 @@ public class ProfessionController {
         Profession profession = professionService.get(id);
         profession.setImageUrl(imageUrl);
         professionService.update(profession);
-        return "redirect:/admin_profession_list";
+        return "redirect:/admin/admin_profession_list";
     }
 
 }

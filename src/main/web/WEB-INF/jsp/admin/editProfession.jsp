@@ -18,7 +18,7 @@
 <c:set var="p" value="${profession}"/>
 <div>编辑专家</div>
 <div>
-    <form method="post" action="${pageContext.request.contextPath}/admin_profession_edit">
+    <form method="post" action="${pageContext.request.contextPath}/admin/admin_profession_edit">
         <table>
             <tr>
                 <td>专家id</td>
@@ -37,7 +37,7 @@
                     <button type="submit">修改专家</button>
                 </td>
                 <td colspan="2" align="center">
-                    <form method="get" action="admin_profession_list">
+                    <form method="get" action="${pageContext.request.contextPath}/admin/admin_profession_list">
                         <button type="submit">撤销修改</button>
                     </form>
                 </td>

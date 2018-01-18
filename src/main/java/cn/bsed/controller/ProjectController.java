@@ -24,7 +24,7 @@ import java.util.List;
  * @version 1.0
  */
 @Controller
-@RequestMapping("")
+@RequestMapping("/admin")
 public class ProjectController {
     @Autowired
     ProjectService projectService;
@@ -69,7 +69,7 @@ public class ProjectController {
         Date time = simpleDateFormat.parse(year);
         project.setTime(time);
         projectService.add(project);
-        return "redirect:/admin_project_list";
+        return "redirect:/admin/admin_project_list";
     }
 
     /**
@@ -85,7 +85,7 @@ public class ProjectController {
         Date time = simpleDateFormat.parse(year);
         project.setTime(time);
         projectService.update(project);
-        return "redirect:/admin_project_list";
+        return "redirect:/admin/admin_project_list";
     }
 
     /**
@@ -121,6 +121,6 @@ public class ProjectController {
         Project project = projectService.get(id);
         project.setImageUrl(imageUrl);
         projectService.update(project);
-        return "redirect:/admin_project_list";
+        return "redirect:/admin/admin_project_list";
     }
 }

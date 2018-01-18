@@ -18,13 +18,13 @@
         <c:forEach items="${images}" var="i">
             <tr>
                 <th><img src="${pageContext.request.contextPath}/${i.url}" alt="${i.url}" width="300" height="200"></th>
-                <th><a href="${pageContext.request.contextPath}/admin_creator_image_select?id=${creator_id}&imageUrl=${i.url}">选择</a></th>
+                <th><a href="${pageContext.request.contextPath}/admin/admin_creator_image_select?id=${creator_id}&imageUrl=${i.url}">选择</a></th>
             </tr>
         </c:forEach>
         </tbody>
         <tfoot>
             <tr>
-                <th><a href="${pageContext.request.contextPath}/admin_creator_list">取消</a></th>
+                <th><a href="${pageContext.request.contextPath}/admin/admin_creator_list">取消</a></th>
             </tr>
         </tfoot>
     </table>

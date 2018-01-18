@@ -70,20 +70,20 @@
                 </td>
                 <td>${p.projectPageUrl}</td>
                 <td>
-                    <a href="${pageContext.request.contextPath}/admin_select_project_image_page?id=${p.id}">
+                    <a href="${pageContext.request.contextPath}/admin/admin_select_project_image_page?id=${p.id}">
                     <img src="${pageContext.request.contextPath}/${p.imageUrl}" alt="${p.imageUrl}" width="300" height="200"><br/>
                     更改项目图片</a>
                 </td>
                 <td>
-                    <a href="${pageContext.request.contextPath}/admin_edit_project_page?id=${p.id}">编辑项目</a>
+                    <a href="${pageContext.request.contextPath}/admin/admin_edit_project_page?id=${p.id}">编辑项目</a>
                 </td>
                 <td>
-                    <a href="${pageContext.request.contextPath}/admin_project_delete?id=${p.id}">删除项目</a>
+                    <a href="${pageContext.request.contextPath}/admin/admin_project_delete?id=${p.id}">删除项目</a>
                 </td>
             </tr>
         </c:forEach>
         </tbody>
-        <form method="post" action="${pageContext.request.contextPath}/admin_project_add">
+        <form method="post" action="${pageContext.request.contextPath}/admin/admin_project_add">
         <tfoot>
             <tr>
                 <td>新增项目</td>
@@ -102,7 +102,7 @@
             </tr>
                 <tr>
                     <td>项目id自动给出</td>
-                    <td><input  id="categoryId" name="categoryId" type="text"></td>
+                    <td><input  id="categoryId" name="categoryId" type="number"></td>
                     <td>
                         <select id="categoryType" name="categoryType">
                             <option value="type_landscape">type_landscape</option>
@@ -120,7 +120,7 @@
                     <td><input  id="name" name="name" type="text"></td>
                     <td><input  id="owner" name="owner" type="text"></td>
                     <td><input  id="location" name="location" type="text"></td>
-                    <td><input  id="area" name="area" type="text">㎡</td>
+                    <td><input  id="area" name="area" type="number">㎡</td>
                     <td>
                         <select name="year" id="year">
                             <option value="">---请选择---</option>
