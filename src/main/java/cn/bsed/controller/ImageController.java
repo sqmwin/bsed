@@ -59,7 +59,7 @@ public class ImageController {
     public String add(@RequestParam("image") MultipartFile file,Model model) {
         long fileSize = file.getSize();
         long maxSize = 2090000L;
-        if (fileSize == 0) {
+        if (file.isEmpty()) {
             model.addAttribute("result", "请选择图片");
             return "/error/errorFileUpload";
         } else if (fileSize > maxSize) {

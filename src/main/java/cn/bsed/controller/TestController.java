@@ -3,6 +3,7 @@ package cn.bsed.controller;
 import cn.bsed.exception.CorrectInputException;
 import cn.bsed.exception.ForeException;
 import cn.bsed.exception.WrongInputException;
+import cn.bsed.handler.MyExceptionResolver;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,10 +16,15 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 @Controller
 @RequestMapping("/test")
-public class TestController {
+public class TestController extends MyExceptionResolver {
+    @RequestMapping(value = "/404", method = RequestMethod.GET)
+    public String notFound() {
+        return "error/404";
+    }
 
     @RequestMapping(value = "/exception_test_page", method = RequestMethod.GET)
     public String exceptionTestPage() {
+
         return "test/exception";
     }
 
@@ -31,4 +37,5 @@ public class TestController {
             throw new CorrectInputException("输入正确");
         }
     }
+
 }
