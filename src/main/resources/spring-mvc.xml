@@ -87,7 +87,7 @@
     <bean class="cn.bsed.converter.MyDateConverter" id="dateConverter"/>
 
     <!--注册类型转换服务Bean-->
-    <bean class="org.springframework.context.support.ConversionServiceFactoryBean">
+    <bean class="org.springframework.context.support.ConversionServiceFactoryBean" id="conversionService">
         <property name="converters">
             <set>
                 <ref bean="dateConverter"/>
@@ -97,4 +97,12 @@
 
     <!--注册MVC注解驱动-->
     <mvc:annotation-driven conversion-service="conversionService"/>
+
+    <!--注册验证器-->
+    <!--验证器由LocalValidatorFactoryBean生成-->
+    <!--而真正提供验证器的是providerClass：HibernateValidator-->
+    <!--<mvc:annotation-driven validator="validator"/>-->
+    <!--<bean class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" id="validator">-->
+        <!--<property name="providerClass" value="org.hibernate.validator.HibernateValidator"/>-->
+    <!--</bean>-->
 </beans>

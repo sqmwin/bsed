@@ -997,7 +997,7 @@
     </column>
     <column id="247" parent="230" name="description">
       <Position>7</Position>
-      <DataType>varchar(255)|0</DataType>
+      <DataType>text|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="248" parent="230" name="image_url">
@@ -1103,7 +1103,7 @@
     </column>
     <column id="267" parent="233" name="description">
       <Position>7</Position>
-      <DataType>varchar(255)|0</DataType>
+      <DataType>text|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="268" parent="233" name="image_url">

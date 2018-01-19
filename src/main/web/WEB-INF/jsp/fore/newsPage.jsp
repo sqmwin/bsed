@@ -6,16 +6,14 @@
   Time: 14:10
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
     <title>${news.title}</title>
 </head>
 <body>
-<div>
-    <a href="${pageContext.request.contextPath}/list_news">返回上一页</a>
-</div>
+<%@include file="../include/foreNavigator.jsp"%>
 <div>
     <table>
         <thead>

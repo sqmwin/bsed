@@ -1,5 +1,7 @@
 package cn.bsed.service;
 
+import cn.bsed.exception.user.ChangePasswordException;
+import cn.bsed.exception.user.WrongUserInformationException;
 import cn.bsed.pojo.User;
 
 /**
@@ -15,9 +17,11 @@ public interface UserService {
 
     void update(User user);
 
+    void updatePassword(int id, String password, String ensure) throws ChangePasswordException;
+
     User get(int id);
 
     User getByUsername(String username);
 
-    boolean login(User user);
+    void login(User user) throws WrongUserInformationException;
 }

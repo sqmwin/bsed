@@ -30,6 +30,11 @@ public class ForeController {
     @Autowired
     ProfessionService professionService;
 
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    public String index() {
+        return "fore/home";
+    }
+
     /**
      * <p>   后台管理登陆页
      *
@@ -37,19 +42,18 @@ public class ForeController {
      */
     @RequestMapping(value = "/admin_login_page", method = RequestMethod.GET)
     public String loginPage() {
-        return "admin/loginPage";
+        return "fore/loginPage";
     }
 
     /**
      * <p>   显示所有的分类
      *
-     * @param model 分类列表
      * @return 主页
      */
     @RequestMapping(value = "/forehome", method = RequestMethod.GET)
-    public String fore(Model model) {
-        List<Category> categories = categoryService.listAll();
-        model.addAttribute("categories", categories);
+    public String fore() {
+        // List<Category> categories = categoryService.listAll();
+        // model.addAttribute("categories", categories);
         return "fore/home";
     }
 

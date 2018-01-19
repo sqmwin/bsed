@@ -6,15 +6,13 @@
   Time: 14:10
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" %>
 <html>
 <head>
     <title>${creator.name}</title>
 </head>
 <body>
-<div>
-    <a href="${pageContext.request.contextPath}/list_creators?categoryId=9">返回上一页</a>
-</div>
+<%@include file="../include/foreNavigator.jsp"%>
 <div>
     <table>
         <thead>

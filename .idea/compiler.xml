@@ -9,7 +9,7 @@
         <module name="bsed" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="1.8">
       <module name="bsed" target="1.8" />
     </bytecodeTargetLevel>
   </component>

@@ -1,7 +1,11 @@
 package cn.bsed.service;
 
+import cn.bsed.exception.ImageUploadException;
 import cn.bsed.pojo.Image;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -33,4 +37,6 @@ public interface ImageService {
      *@return java.util.List<cn.bsed.pojo.Image> image的list集合
      */
     List<Image> listAll();
+
+    String upload(HttpSession session, MultipartFile file) throws ImageUploadException, IOException;
 }

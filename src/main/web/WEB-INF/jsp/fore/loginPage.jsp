@@ -5,15 +5,13 @@
   Time: 17:49
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" %>
 <html>
 <head>
     <title>登录后台管理</title>
 </head>
 <body>
-<div>
-    <a href="${pageContext.request.contextPath}/forehome">返回上一页</a>
-</div>
+<%@include file="../include/foreNavigator.jsp"%>
 <div>
     ${message}
 </div>
@@ -21,11 +19,11 @@
     <table>
         <tr>
             <td>用户名：</td>
-            <td><input type="text" id="username" name="username"></td>
+            <td><input type="text" id="username" name="username">${userNameError}</td>
         </tr>
         <tr>
             <td>密码：</td>
-            <td><input type="password" id="password" name="password"></td>
+            <td><input type="password" id="password" name="password">${passwordError}</td>
         </tr>
         <tr>
             <td><input type="submit" value="登陆"></td>

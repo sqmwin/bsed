@@ -9,7 +9,11 @@ import java.util.Objects;
  */
 public class User {
     private int id;
+    // @NotEmpty(message = "用户名不能为空")
     private String username;
+
+    // @NotEmpty(message = "密码不能为空")
+    // @Size(min = 6,max = 16,message = "密码长度为{min}-{max}位")
     private String password;
     private String nickname;
 

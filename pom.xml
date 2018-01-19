@@ -230,6 +230,16 @@
             <version>1.2.44</version>
         </dependency>
 
+        <!--hibernate validator-->
+        <!--<dependency>-->
+            <!--<groupId>org.hibernate</groupId>-->
+            <!--<artifactId>hibernate-validator</artifactId>-->
+            <!--<version>4.3.2.Final</version>-->
+        <!--</dependency>-->
+
+
+
+
         <dependency>
             <groupId>org.jetbrains</groupId>
             <artifactId>annotations</artifactId>

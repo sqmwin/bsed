@@ -54,25 +54,22 @@
 <div id="content"></div>
 <div>
 <table>
-    <form method="post" id="admin_image_add_with_json" enctype="multipart/form-data">
-        <thead>
-        <tr>
-            <th>新增图片(json)</th>
-        </tr>
-        <tr>
-            <th>
-                <input type="file" name="image_json" id="image_json">
-            </th>
-            <th>
-                <input type="submit" value="新增本地图片（json）" onclick="admin()">
-            </th>
-        </tr>
-        <tr>
-            <th>图片</th>
-        </tr>
-        </thead>
-    </form>
-    <form method="post" action="${pageContext.request.contextPath}admin/admin_image_add" enctype="multipart/form-data">
+    <%--<form method="post" id="admin_image_add_with_json" enctype="multipart/form-data">--%>
+        <%--<thead>--%>
+        <%--<tr>--%>
+            <%--<th>新增图片(json)</th>--%>
+        <%--</tr>--%>
+        <%--<tr>--%>
+            <%--<th>--%>
+                <%--<input type="file" name="image_json" id="image_json">--%>
+            <%--</th>--%>
+            <%--<th>--%>
+                <%--<input type="submit" value="新增本地图片（json）" onclick="admin()">--%>
+            <%--</th>--%>
+        <%--</tr>--%>
+        <%--</thead>--%>
+    <%--</form>--%>
+    <form method="post" action="${pageContext.request.contextPath}/admin/admin_image_add" enctype="multipart/form-data">
         <thead>
         <tr>
             <th>新增图片</th>
@@ -84,6 +81,9 @@
             <th>
                 <input type="submit" value="新增本地图片">
             </th>
+        </tr>
+        <tr>
+            ${pageContext.session.getAttribute("result")}
         </tr>
         <tr>
             <th>图片</th>

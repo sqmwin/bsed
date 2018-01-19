@@ -5,7 +5,7 @@
   Time: 22:01
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
@@ -13,9 +13,7 @@
     <title>新闻页面</title>
 </head>
 <body>
-<div>
-    <a href="${pageContext.request.contextPath}/forehome">返回主页</a>
-</div>
+<%@include file="../include/foreNavigator.jsp"%>
 <div>
     <table>
         <thead>

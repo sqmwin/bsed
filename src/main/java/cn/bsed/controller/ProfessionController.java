@@ -46,7 +46,7 @@ public class ProfessionController {
         profession.setCategoryId(10);
         profession.setCategoryType("type_other");
         professionService.add(profession);
-        return "redirect:/admin_profession_list";
+        return "redirect:/admin/admin_profession_list";
     }
 
     @RequestMapping(value = "/admin_profession_edit", method = RequestMethod.POST)

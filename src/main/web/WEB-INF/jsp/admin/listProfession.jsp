@@ -37,10 +37,10 @@
                         <img src="${pageContext.request.contextPath}/${p.imageUrl}" alt="${p.imageUrl}" width="150" height="200">更改图片</a>
                 </td>
                 <td>
-                    <a href="${pageContext.request.contextPath}/admin/admin_edit_profession_page?id=${p.id}">编辑新闻</a>
+                    <a href="${pageContext.request.contextPath}/admin/admin_edit_profession_page?id=${p.id}">编辑专家</a>
                 </td>
                 <td>
-                    <a href="${pageContext.request.contextPath}/admin/admin_profession_delete?id=${p.id}">删除新闻</a>
+                    <a href="${pageContext.request.contextPath}/admin/admin_profession_delete?id=${p.id}">删除专家</a>
                 </td>
             </tr>
         </c:forEach>

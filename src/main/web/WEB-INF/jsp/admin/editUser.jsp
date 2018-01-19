@@ -28,7 +28,6 @@
             <td>${passwordMessage}</td>
         </tr>
         <tr>
-            <td><input type="hidden" id="username" name="username" value="${pageContext.session.getAttribute("user").username}"></td>
             <td><input type="submit" value="修改密码"></td>
         </tr>
     </table>
