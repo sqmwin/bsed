@@ -8,7 +8,7 @@ import java.security.MessageDigest;
  * @date 2018/1/17
  * @version: 1.0
  */
-public class MD5Util {
+public class Md5Util {
     public static String getMD5(String string) {
         try {
             // 生成一个MD5加密计算摘要

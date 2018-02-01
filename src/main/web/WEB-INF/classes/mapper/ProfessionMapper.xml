@@ -9,7 +9,7 @@
     <result column="job_title" jdbcType="VARCHAR" property="jobTitle" />
     <result column="occupation" jdbcType="VARCHAR" property="occupation" />
     <result column="description" jdbcType="VARCHAR" property="description" />
-    <result column="image_url" jdbcType="VARCHAR" property="imageUrl" />
+    <result column="image_url" jdbcType="VARCHAR" property="imageUrl"/>
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>

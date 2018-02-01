@@ -42,6 +42,7 @@
           <element id="library" level="project" name="Maven: com.github.jsqlparser:jsqlparser:1.1" />
           <element id="library" level="project" name="Maven: com.github.pagehelper:pagehelper:5.1.2" />
           <element id="library" level="project" name="Maven: com.alibaba:fastjson:1.2.44" />
+          <element id="library" level="project" name="Maven: org.jetbrains:annotations:15.0" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="bsed/web/Web" />

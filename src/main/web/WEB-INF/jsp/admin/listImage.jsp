@@ -69,14 +69,47 @@
         <%--</tr>--%>
         <%--</thead>--%>
     <%--</form>--%>
-    <form method="post" action="${pageContext.request.contextPath}/admin/admin_image_add" enctype="multipart/form-data">
+    <form method="post" action="${pageContext.request.contextPath}/admin/admin_image_upload" enctype="multipart/form-data">
         <thead>
         <tr>
             <th>新增图片</th>
         </tr>
         <tr>
             <th>
-                <input type="file" name="image" id="image">
+                <input type="file" name="files">
+            </th>
+            <th>
+                <input type="file" name="files">
+            </th>
+            <th>
+                <input type="file" name="files">
+            </th>
+            <th>
+                <input type="submit" value="新增本地图片">
+            </th>
+        </tr>
+        <tr>
+            ${pageContext.session.getAttribute("result")}
+        </tr>
+        <tr>
+            <th>图片</th>
+        </tr>
+        </thead>
+    </form>
+        <form method="post" action="${pageContext.request.contextPath}/admin/admin_image_upload_mul" enctype="multipart/form-data">
+        <thead>
+        <tr>
+            <th>新增图片</th>
+        </tr>
+        <tr>
+            <th>
+                <input type="file" name="files">
+            </th>
+            <th>
+                <input type="file" name="files">
+            </th>
+            <th>
+                <input type="file" name="files">
             </th>
             <th>
                 <input type="submit" value="新增本地图片">

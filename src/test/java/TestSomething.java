@@ -3,7 +3,7 @@ import cn.bsed.mapper.UserMapper;
 import cn.bsed.pojo.Project;
 import cn.bsed.pojo.User;
 import cn.bsed.service.UserService;
-import cn.bsed.util.security.MD5Util;
+import cn.bsed.util.security.Md5Util;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -76,7 +76,7 @@ public class TestSomething {
     @Test
     public void testHashCode() {
         String password = "admin";
-        String md5code = MD5Util.getMD5(password);
+        String md5code = Md5Util.getMD5(password);
         System.out.println(md5code);
     }
 

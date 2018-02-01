@@ -19,11 +19,11 @@
     <table>
         <tr>
             <td>用户名：</td>
-            <td><input type="text" id="username" name="username">${userNameError}</td>
+            <td><input type="text" id="username" name="username"></td>
         </tr>
         <tr>
             <td>密码：</td>
-            <td><input type="password" id="password" name="password">${passwordError}</td>
+            <td><input type="password" id="password" name="password"></td>
         </tr>
         <tr>
             <td><input type="submit" value="登陆"></td>

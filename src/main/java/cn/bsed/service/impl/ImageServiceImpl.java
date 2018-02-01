@@ -65,8 +65,13 @@ public class ImageServiceImpl implements ImageService {
             if (!(originalFilename.endsWith(jpgEnd) || originalFilename.endsWith(pngEnd))) {
                 throw new ImageUploadException("文件格式错误，只能是" + jpgEnd + "或" + pngEnd + "文件");
             } else if (originalFilename.endsWith(jpgEnd) || originalFilename.endsWith(pngEnd)) {
-                String fileRelativePath = "img/" + System.currentTimeMillis() + "_" + originalFilename;
-                String fileAbsolutePath = session.getServletContext().getRealPath("/") + fileRelativePath;
+                String fileRelativePath = "/img/" + System.currentTimeMillis() + "_" + originalFilename;
+                String fileAbsolutePath = session.getServletContext().getRealPath("") + fileRelativePath;
+
+                String contextPath = session.getServletContext().getContextPath();
+                System.out.println(contextPath);
+                
+                System.out.println(fileAbsolutePath);
                 File saveFile = FileUpLoad.saveFile(file, fileAbsolutePath);
                 if (saveFile != null) {
                     //转换成正真的图片格式

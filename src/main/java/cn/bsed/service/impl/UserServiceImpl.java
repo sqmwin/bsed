@@ -5,7 +5,7 @@ import cn.bsed.exception.user.WrongUserInformationException;
 import cn.bsed.mapper.UserMapper;
 import cn.bsed.pojo.User;
 import cn.bsed.service.UserService;
-import cn.bsed.util.security.MD5Util;
+import cn.bsed.util.security.Md5Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,7 +25,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void add(User user) {
         String password = user.getPassword();
-        String password2MD5Code = MD5Util.getMD5(password);
+        String password2MD5Code = Md5Util.getMD5(password);
         user.setPassword(password2MD5Code);
         userMapper.insert(user);
     }
@@ -38,7 +38,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void update(User user) {
         String password = user.getPassword();
-        String password2MD5Code = MD5Util.getMD5(password);
+        String password2MD5Code = Md5Util.getMD5(password);
         user.setPassword(password2MD5Code);
         userMapper.update(user);
     }
@@ -66,7 +66,7 @@ public class UserServiceImpl implements UserService {
             } else {
                 User user = userMapper.selectByPrimaryKey(id);
                 String oldPassword = user.getPassword();
-                String newPassword = MD5Util.getMD5(password);
+                String newPassword = Md5Util.getMD5(password);
                 if (oldPassword != null && newPassword != null) {
                     //判断密码是否与旧密码相同
                     if (newPassword.equals(oldPassword)) {
@@ -100,7 +100,7 @@ public class UserServiceImpl implements UserService {
         if (password == null || password.equals(EMPTY)) {
             throw new WrongUserInformationException("密码不能为空");
         }
-        String password2MD5Code = MD5Util.getMD5(password);
+        String password2MD5Code = Md5Util.getMD5(password);
         List<User> users = userMapper.selectAll();
         for (User userInDataBase : users) {
             if (!(username.equals(userInDataBase.getUsername()) && password2MD5Code.equals(userInDataBase.getPassword()))) {

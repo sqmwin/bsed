@@ -62,6 +62,7 @@ public class UserController {
         }
     }
 
+    /**退出登陆*/
     @RequestMapping(value = "/admin_user_logout", method = RequestMethod.GET)
     public String logout(HttpSession session, Model model) {
         model.addAttribute("message", "已退出");
@@ -69,11 +70,13 @@ public class UserController {
         return "fore/loginPage";
     }
 
+    /**修改密码页面*/
     @RequestMapping(value = "/admin_user_edit_page", method = RequestMethod.GET)
     public String editPage() {
         return "admin/editUser";
     }
 
+    /**修改密码*/
     @RequestMapping(value = "admin_user_edit", method = RequestMethod.POST)
     public String edit(HttpSession session, @RequestParam("password") String password, @RequestParam("ensure") String ensure, Model model) {
         User user = (User) session.getAttribute("user");

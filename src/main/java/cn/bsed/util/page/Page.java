@@ -2,19 +2,24 @@ package cn.bsed.util.page;
 
 /**
  * <p>
- *  分页类
+ * 分页类
+ *
  * @author SQM
  * @create 2018/1/11
  */
 public class Page {
-    
     /**
-     *<p>开始页数
+     * <p>默认每页显示的条数
+     */
+    private static final int DEFAULT_COUNT = 5;
+
+    /**
+     * <p>开始页数
      */
     private int start;
 
     /**
-     *<p>每页显示个数
+     * <p>每页显示个数
      */
     private int count;
 
@@ -28,11 +33,6 @@ public class Page {
      */
     private String param;
 
-    /**
-     * <p>默认每页显示条数
-     */
-    private static final int DEFAULT_COUNT = 5;
-
     public Page() {
         count = DEFAULT_COUNT;
     }
@@ -43,9 +43,9 @@ public class Page {
     }
 
     /**
-     *<p>获取总分页数
+     * <p>获取总分页数
      *
-     *@return int   总分页个数
+     * @return int   总分页个数
      */
     public int getTotalPage() {
         //总页数
@@ -85,9 +85,9 @@ public class Page {
     }
 
     /**
-     *<p>判断此page实例是否是第一个page
+     * <p>判断此page实例是否是第一个page
      *
-     *@return boolean   是返回true，否返回false
+     * @return boolean   是返回true，否返回false
      */
     public boolean isHasPrevious() {
         return !(start == 0);

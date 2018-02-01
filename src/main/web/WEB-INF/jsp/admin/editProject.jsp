@@ -11,22 +11,22 @@
 <html>
 <head>
     <title>编辑项目页面</title>
-    <%--<script type="text/javascript">--%>
-        <%--&lt;%&ndash;生成年份下拉列表,并通过project的默认time选择默认选项&ndash;%&gt;--%>
-        <%--function createYear() {--%>
-            <%--var time = ${project.time.year};--%>
-            <%--var year = document.getElementById("year");--%>
-            <%--for (var i = 2000; i <= 2030; i++) {--%>
-                <%--var option = document.createElement('option');--%>
-                <%--option.setAttribute('value', i);--%>
-                <%--if (time === i) {--%>
-                    <%--option.setAttribute('selected', true);--%>
-                <%--}--%>
-                <%--option.innerHTML = i;--%>
-                <%--year.appendChild(option);--%>
-            <%--}--%>
-        <%--}--%>
-    <%--</script>--%>
+    <script type="text/javascript">
+        <%--生成年份下拉列表,并通过project的默认time选择默认选项--%>
+        function createYear() {
+            var time = ${project.time.year};
+            var year = document.getElementById("year");
+            for (var i = 2000; i <= 2030; i++) {
+                var option = document.createElement('option');
+                option.setAttribute('value', i);
+                if (time === i) {
+                    option.setAttribute('selected', true);
+                }
+                option.innerHTML = i;
+                year.appendChild(option);
+            }
+        }
+    </script>
 </head>
 <body onload="createYear()">
 <c:set var="p" value="${project}"/>
@@ -50,7 +50,7 @@
             </tr>
             <tr>
                 <td>${p.id}<input type="hidden" id="id" name="id" value="${p.id}"/> </td>
-                <td><input type="text" id="categoryId" name="categoryId" value="${p.categoryId}"></td>
+                <td><input type="number" id="categoryId" name="categoryId" value="${p.categoryId}"></td>
                 <td>
                     <select id="categoryType" name="categoryType">
                         <option value="type_landscape"<c:if test="${p.categoryType == 'type_landscape'}">
@@ -80,7 +80,7 @@
                 <td><textarea name="description" id="description" cols="50" rows="10">${p.description}</textarea></td>
                 <td>
                     <fmt:formatDate value="${p.createDate}" pattern="yyyy-MM-dd"/>
-                    <input type="hidden" id="createDate" name="createDate" value="${p.createDate}"/>
+                    <%--<input type="hidden" id="createDate" name="createDate" value="${p.createDate}"/>--%>
                 </td>
                 <td><input type="text" id="name" name="name" value="${p.name}"></td>
                 <td><input type="text" id="owner" name="owner" value="${p.owner}"></td>
@@ -90,7 +90,7 @@
                     <%--<select name="year" id="year">--%>
                         <%--<option value="">---请选择---</option>--%>
                     <%--</select>年--%>
-                    <input type="text" id="year" name="year" size="4" maxlength="4" value="<fmt:formatDate value="${p.time}" pattern="yyyy"/>">年
+                    <input type="number" id="year" name="year" size="4" maxlength="4" value="<fmt:formatDate value="${p.time}" pattern="yyyy"/>">年
                 </td>
                 <td><input type="text" id="projectPageUrl" name="projectPageUrl" value="${p.projectPageUrl}"></td>
             </tr>

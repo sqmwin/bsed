@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -79,10 +80,10 @@ public class ProjectController {
      * @return 项目管理页面
      */
     @RequestMapping(value = "/admin_project_edit",method = RequestMethod.POST)
-    public String edit(Project project, String year) throws ParseException {
+    public String edit(Project project, @RequestParam("year") Integer year) throws ParseException {
         //设置设计时间
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy");
-        Date time = simpleDateFormat.parse(year);
+        Date time = simpleDateFormat.parse(year.toString());
         project.setTime(time);
         projectService.update(project);
         return "redirect:/admin/admin_project_list";
